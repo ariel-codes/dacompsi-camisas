@@ -1,0 +1,12 @@
+div.flex-grow.flex.flex-col.justify-center.items-center
+  - unless @campaigns.present?
+    p Vendas estão fechadas, foi mal :(
+  - else
+    ul
+      - @campaigns.each do |campaign|
+        li
+          p.text-xl.font-bold.text-brand-600 class="hover:underline" = link_to campaign.name, campaign
+          sub.text-sm.text-gray-500 class="top-[-0.4em]"
+            time = campaign.start.strftime("%d/%m/%Y")
+            | ➡️
+            time = campaign.end.strftime("%d/%m/%Y")
