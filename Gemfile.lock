@@ -91,6 +91,9 @@ GEM
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    hpricot (0.8.6)
+    html2slim (0.2.0)
+      hpricot
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -196,6 +199,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    slim (4.1.0)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
+    slim-rails (3.6.1)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      slim (>= 3.0, < 6.0, != 5.0.0)
     sqlite3 (1.6.1-x86_64-darwin)
     standard (1.24.3)
       language_server-protocol (~> 3.17.0.2)
@@ -207,7 +217,9 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.24-x86_64-darwin)
       railties (>= 6.0.0)
+    temple (0.8.2)
     thor (1.2.1)
+    tilt (2.0.11)
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -234,18 +246,21 @@ GEM
     zeitwerk (2.6.7)
 
 PLATFORMS
+  x86_64-darwin-21
   x86_64-darwin-22
 
 DEPENDENCIES
   bootsnap
   capybara
   debug
+  html2slim (~> 0.2.0)
   importmap-rails
   propshaft
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   redis (~> 4.0)
   selenium-webdriver
+  slim-rails (~> 3.6)
   sqlite3 (~> 1.4)
   standardrb (~> 1.0)
   stimulus-rails
@@ -259,4 +274,4 @@ RUBY VERSION
    ruby 3.2.0p0
 
 BUNDLED WITH
-   2.4.5
+   2.3.12

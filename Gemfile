@@ -27,6 +27,9 @@ gem "stimulus-rails"
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
 
+# Use Slim for HTML templates [https://github.com/slim-template/slim]
+gem "slim-rails", "~> 3.6"
+
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
