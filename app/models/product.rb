@@ -17,9 +17,7 @@ class Product < ApplicationRecord
     return errors.add(:variations) unless variations.presence.is_a?(Hash)
 
     variations.each do |key, value|
-      unless key.in?(self.class::VARIATIONS) && value.presence.is_a?(Array)
-        return errors.add(:variations)
-      end
+      return errors.add(:variations) unless key.is_a?(String) && value.presence.is_a?(Array)
     end
   end
 end

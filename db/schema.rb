@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_011931) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_194922) do
   create_table "campaigns", force: :cascade do |t|
     t.string "name", null: false
     t.date "start", null: false
@@ -26,6 +26,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_011931) do
     t.index ["product_id", "campaign_id"], name: "index_campaigns_products_on_product_id_and_campaign_id"
   end
 
+  create_table "cart_products", force: :cascade do |t|
+    t.integer "cart_id", null: false
+    t.integer "product_id", null: false
+    t.integer "quantity", null: false
+    t.json "variations", default: {}, null: false
+    t.index ["cart_id", "product_id"], name: "index_cart_products_on_cart_id_and_product_id"
+    t.index ["cart_id"], name: "index_cart_products_on_cart_id"
+    t.index ["product_id", "cart_id"], name: "index_cart_products_on_product_id_and_cart_id"
+    t.index ["product_id"], name: "index_cart_products_on_product_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.boolean "closed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
@@ -37,4 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_011931) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cart_products", "carts"
+  add_foreign_key "cart_products", "products"
 end
