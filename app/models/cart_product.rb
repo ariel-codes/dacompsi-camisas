@@ -4,6 +4,14 @@ class CartProduct < ApplicationRecord
 
   validate :validate_variations
 
+  def total_price
+    product.price * quantity
+  end
+
+  def total_price_in_reais
+    total_price / 100.0
+  end
+
   private
 
   def validate_variations

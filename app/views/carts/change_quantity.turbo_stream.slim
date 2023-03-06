@@ -1,0 +1,4 @@
+= turbo_stream.replace(@cart_product,
+        partial: "cart_product", locals: {cart_product: @cart_product})
+= turbo_stream.replace("cart-total-price",
+        partial: "total_price", locals: {cart: @cart})

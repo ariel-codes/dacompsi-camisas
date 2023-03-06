@@ -2,17 +2,11 @@ class Cart < ApplicationRecord
   has_many :cart_products
   has_many :products, through: :cart_products
 
-  validate :validate_variations
+  def total_price
+    cart_products.map(&:total_price).sum
+  end
 
-  private
-
-  def validate_variations
-    return errors.add(:variations) unless variations.presence.is_a?(Hash)
-
-    variations.each do |key, value|
-      unless key.in?(self.class::VARIATIONS) && value.presence.is_a?(String)
-        return errors.add(:variations)
-      end
-    end
+  def total_price_in_reais
+    total_price / 100.0
   end
 end

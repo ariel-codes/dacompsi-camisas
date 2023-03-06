@@ -1,0 +1,10 @@
+.flex.flex-col.gap-6
+  header
+    h1.text-3xl.font-semibold.text-neutral-800 Carrinho de Compras
+
+  ul.flex.flex-col.gap-6
+    = render partial: "cart_product", collection:  @cart.cart_products
+
+  = render partial: "total_price", locals: {cart: @cart}
+
+  = button_to "Finalizar Compra", {}, class: "w-full rounded bg-brand-500 text-white font-semibold py-2 hover:bg-brand-600"

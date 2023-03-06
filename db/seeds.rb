@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-camisa231 = Shirt.create! price: 3200, name: "Camisa de Curso",
+camisa231 = Product.create! price: 3200, name: "Camisa de Curso",
   thumb_path: "/camisa-thumb.png",
   carousel_paths: %w[/camisa-cc.png /camisa-si.png /camisa-tamanhos.png],
   variations: {
@@ -16,7 +16,7 @@ camisa231 = Shirt.create! price: 3200, name: "Camisa de Curso",
     "corte" => %w[t-shirt babylook]
   }
 
-jaqueta231 = Shirt.create! price: 3200, name: "Jaqueta DCC",
+jaqueta231 = Product.create! price: 3200, name: "Jaqueta DCC",
   thumb_path: "/jaqueta-thumb.png",
   carousel_paths: %w[/jaqueta-frente.png /jaqueta-verso.png /jaqueta-tamanhos.png],
   variations: {

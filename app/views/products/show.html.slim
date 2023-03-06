@@ -1,6 +1,7 @@
 .flex.flex-col.gap-6
   header
-    h2.font-medium.text-neutral-600.hover:underline = link_to @campaign.name, @campaign
+    - if @campaign
+      h2.font-medium.text-neutral-600.hover:underline = link_to @campaign.name, @campaign
     h1.text-3xl.font-semibold.text-neutral-800 = @product.name
 
   sl-carousel pagination=true navigation=true mouse-dragging=true loop=true style="--aspect-ratio: 1/1;"
@@ -13,11 +14,16 @@
     span |>
     span.font-semibold.text-sm.text-neutral-600.uppercase pix, cartão ou boleto
 
-  = form_with model: @product, url: "", method: :post do |form|
+  = form_with scope: :product, url: add_product_cart_path, method: :post do |form|
+    = form.hidden_field :product_id, value: @product.id
     .grid.grid-rows-1.grid-cols-auto.gap-4.mb-4
+      = form.label :quantity, class: 'flex items-baseline' do |label|
+        span class="w-[10ch]" Quantidade
+        .flex-grow.px-3
+          = form.number_field :quantity, value: 1, min: 1, class: 'rounded w-1/2'
       - @product.variations.each do |key, values|
-        - field_name = "#{@product.class.name.downcase}[variations][#{key}]"
-        = label_tag field_name, class: 'flex items-baseline' do |label|
+        - field_name = "[variations][#{key}]"
+        = form.label field_name, class: 'flex items-baseline' do |label|
           span class="w-[10ch]" = key.titleize
-          = select_tag(field_name, options_for_select(values), class: 'flex-grow rounded')
+          = form.select field_name, values, {}, class: 'flex-grow rounded'
     = submit_tag "Adicionar ao Carrinho", class: "w-full rounded bg-brand-500 text-white font-semibold py-2 hover:bg-brand-600"
