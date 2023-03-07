@@ -19,10 +19,10 @@
       = form.label :quantity, class: 'flex items-baseline' do |label|
         span class="w-[10ch]" Quantidade
         .flex-grow.px-3
-          = form.number_field :quantity, value: 1, min: 1, class: 'rounded w-1/2'
+          = form.number_field :quantity, value: 1, min: 1, required: true, class: 'w-1/2', 'validation-visible': "false"
       - @product.variations.each do |key, values|
         - field_name = "[variations][#{key}]"
         = form.label field_name, class: 'flex items-baseline' do |label|
           span class="w-[10ch]" = key.titleize
-          = form.select field_name, values, {}, class: 'flex-grow rounded'
-      = submit_tag "Adicionar ao Carrinho", class: "w-full rounded bg-brand-500 text-white font-semibold py-2 hover:bg-brand-600"
+          = form.select field_name, values, {}, class: 'flex-grow'
+      = submit_tag "Adicionar ao Carrinho", class: "w-full bg-brand-500 text-white font-semibold py-2 hover:bg-brand-600"

@@ -7,12 +7,14 @@
   = form_with model: @buyer, url: order_cart_url, method: :post,
           class: "grid grid-rows-1 grid-cols-auto gap-4 mb-4" do |form|
     = form.label :name, "Nome", class: 'flex items-baseline' do |label|
-      span.basis-20 = label
-      = form.text_field :name, class: 'flex-grow rounded basis-40'
+      span.basis-20 Nome
+      = form.text_field :name, required: true, class: 'flex-grow basis-40', placeholder: "Fulano Silva"
     = form.label :email, "Email", class: 'flex items-baseline' do |label|
-      span.basis-20 = label
-      = form.email_field :email, class: 'flex-grow rounded basis-40'
+      span.basis-20 Email
+      = form.email_field :email, required: true, class: 'flex-grow basis-40', placeholder: "fulano@dcc.ufmg.br"
     = form.label :telephone, class: 'flex items-baseline' do |label|
       span.basis-20 Telefone
-      = form.telephone_field :telephone, class: 'flex-grow rounded basis-40'
-    = form.submit "Pagar", class: "rounded bg-brand-500 text-white font-semibold py-2 hover:bg-brand-600"
+      = form.telephone_field :telephone, required: true,
+              pattern: '\d{2} \d{5}-\d{4}', placeholder: '99 99999-9999',
+              class: 'flex-grow basis-40'
+    = form.submit "Pagar", class: "bg-brand-500 text-white font-semibold py-2 hover:bg-brand-600"

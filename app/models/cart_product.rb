@@ -2,6 +2,7 @@ class CartProduct < ApplicationRecord
   belongs_to :cart
   belongs_to :product
 
+  validates :quantity, :total_price, presence: true, numericality: {greater_than: 0}
   validate :validate_variations
 
   def total_price
@@ -10,6 +11,14 @@ class CartProduct < ApplicationRecord
 
   def total_price_in_reais
     total_price / 100.0
+  end
+
+  def change_quantity(change)
+    if quantity + change > 0
+      increment!(:quantity, change)
+    else
+      destroy!
+    end
   end
 
   private

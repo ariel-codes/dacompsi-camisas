@@ -7,4 +7,9 @@
 
   = render partial: "total_price", locals: {cart: @cart}
 
-  = link_to "Finalizar Compra", checkout_cart_path, class: "w-full rounded bg-brand-500 text-white font-semibold py-2 text-center hover:bg-brand-600"
+  .flex.flex-col.gap-3
+    - if @continue_campaign
+      = link_to "Continuar Comprando", campaign_path(@continue_campaign), target: :_top,
+              class: "w-full rounded bg-brand-50 text-brand-500 font-semibold py-2 text-center hover:bg-brand-100"
+    = turbo_frame_tag "cart-checkout", class: "contents" do
+      = render partial: "checkout_button", locals: {cart: @cart}

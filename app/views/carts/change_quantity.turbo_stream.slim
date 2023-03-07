@@ -1,4 +1,14 @@
-= turbo_stream.replace(@cart_product,
-        partial: "cart_product", locals: {cart_product: @cart_product})
+- if @cart_product.persisted?
+  = turbo_stream.replace(@cart_product,
+          partial: "cart_product", locals: {cart_product: @cart_product})
+- else
+  = turbo_stream.remove(@cart_product)
+
 = turbo_stream.replace("cart-total-price",
         partial: "total_price", locals: {cart: @cart})
+
+- if @cart.cart_products.empty?
+  = turbo_stream.remove "cart-checkout"
+- else
+  = turbo_stream.replace "cart-checkout" do
+    = render partial: "checkout_button", locals: {cart: @cart}
