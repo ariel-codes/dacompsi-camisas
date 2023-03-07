@@ -1,12 +1,14 @@
-div.flex-grow.flex.flex-col.justify-center.items-center
+img.w-full.mx-auto.max-w-sm.mb-12 src=asset_path("logo.png")
+
+div.flex.flex-col.justify-center.items-center
   - if @campaigns.empty?
     p Vendas estão fechadas, foi mal :(
   - else
     ul
       - @campaigns.each do |campaign|
         li
-          p.text-xl.font-bold.text-brand-600 class="hover:underline" = link_to campaign.name, campaign
-          sub.text-sm.text-gray-500 class="top-[-0.4em]"
+          p.text-2xl.font-bold.text-brand-600 class="hover:underline" = link_to campaign.name, campaign
+          sub.flex.gap-2.text-sm.text-gray-500 class="top-[-0.2em]"
             time = campaign.start.strftime("%d/%m/%Y")
             | ➡️
             time = campaign.end.strftime("%d/%m/%Y")

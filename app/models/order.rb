@@ -4,7 +4,8 @@ class Order < ApplicationRecord
 
   has_many :cart_products, through: :cart
 
-  validates :buyer, :cart, :cart_products, :total_price, presence: true
+  validates_associated :buyer, :cart, :cart_products
+  validates :buyer, :cart, :total_price, presence: true
 
   def total_price_in_reais
     total_price / 100.0
