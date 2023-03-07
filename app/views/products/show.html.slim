@@ -1,7 +1,6 @@
 .flex.flex-col.gap-6
   header
-    - if @campaign
-      h2.font-medium.text-neutral-600.hover:underline = link_to @campaign.name, @campaign
+    h2.font-medium.text-neutral-600.hover:underline = link_to @campaign.name, @campaign
     h1.text-3xl.font-semibold.text-neutral-800 = @product.name
 
   sl-carousel pagination=true navigation=true mouse-dragging=true loop=true style="--aspect-ratio: 1/1;"
@@ -26,4 +25,4 @@
         = form.label field_name, class: 'flex items-baseline' do |label|
           span class="w-[10ch]" = key.titleize
           = form.select field_name, values, {}, class: 'flex-grow rounded'
-    = submit_tag "Adicionar ao Carrinho", class: "w-full rounded bg-brand-500 text-white font-semibold py-2 hover:bg-brand-600"
+      = submit_tag "Adicionar ao Carrinho", class: "w-full rounded bg-brand-500 text-white font-semibold py-2 hover:bg-brand-600"

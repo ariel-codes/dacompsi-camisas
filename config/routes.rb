@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resource :cart, only: [:show], path: "carrinho" do
-    post :add_product, path: "adicionar-produto"
-    post :change_quantity, path: "alterar-quantidade"
+    post :add_product
+    post :change_quantity
+    get :checkout
+    post :order
   end
+
+  resources :orders, only: [:index, :show], path: "pedidos"
 
   resources :campaigns, path: "campanhas", only: [:index, :show] do
     resources :products, only: [:show], path: "produtos"

@@ -1,0 +1,16 @@
+.flex.flex-col.gap-6
+  header.flex.flex-col.gap-2
+    h1.text-3xl.font-semibold.text-neutral-800 Pedidos
+    section
+      h3.text-lg.text-neutral-600 Dados de Contato
+      p.pl-2.text-neutral-700.leading-none
+        = "#{@buyer.name} <#{@buyer.email}> "
+        span.whitespace-nowrap= @buyer.telephone
+
+  section.flex.flex-col.gap-2
+    - @orders.each do |order|
+      .flex.items-baseline.gap-2.bg-neutral-50
+        time.bg-slate-200.text-sm.rounded.py-1.px-2 = order.created_at.strftime('%d/%m/%Y %H:%M')
+        span.uppercase.font-medium.hover:underline.hover:text-brand-500 = link_to \
+          "Pedido ##{order.id} - #{number_to_currency order.total_price_in_reais, locale: :'pt-BR'}",
+          order_path(order)

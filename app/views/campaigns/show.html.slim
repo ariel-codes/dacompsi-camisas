@@ -3,7 +3,7 @@ h1.text-2xl.font-semibold.text-neutral-800.mb-4 = @campaign.name
 ul.flex.flex-col.gap-2
   - @campaign.products.each do |product|
     li
-      = link_to campaign_product_path(product), \
+      = link_to campaign_product_path(@campaign, product), \
           class: "flex items-center rounded overflow-hidden text-neutral-700 hover:text-brand-600 hover:border-l-8 hover:border-brand-500" do
         img.aspect-square.rounded-r src=product.thumb_path
         .flex.flex-col.gap-0.px-2

@@ -15,17 +15,29 @@ class CartsController < ApplicationController
     @cart_product.increment!(:quantity, params[:change].to_i)
 
     respond_to do |format|
-      format.turbo_stream { render "carts/change_quantity" }
+      format.turbo_stream { render "change_quantity" }
       format.html { redirect_to cart_path, status: :see_other }
     end
   end
 
+  def checkout
+    @buyer = Buyer.new
+  end
+
+  def order
+    Buyer.transaction do
+      @buyer = Buyer.create!(buyer_params)
+      session[:buyer_id] = @buyer.id
+      @order = Order.create!(cart: @cart, buyer: @buyer, total_price: @cart.total_price)
+    end
+
+    redirect_to order_path(@order), status: :see_other
+  end
+
   private
 
-  def set_cart
-    @cart = Cart.find(session[:cart_id])
-  rescue ActiveRecord::RecordNotFound
-    @cart = Cart.create!
+  def require_cart
+    @cart ||= Cart.create!
     session[:cart_id] = @cart.id
   end
 
@@ -33,5 +45,9 @@ class CartsController < ApplicationController
     product = Product.find(params[:product][:product_id])
     params.require(:product).permit(:product_id, :quantity,
       variations: product.variations.keys.map(&:to_sym))
+  end
+
+  def buyer_params
+    params.require(:buyer).permit(:name, :email, :telephone)
   end
 end

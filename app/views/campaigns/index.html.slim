@@ -1,5 +1,5 @@
 div.flex-grow.flex.flex-col.justify-center.items-center
-  - unless @campaigns.present?
+  - if @campaigns.empty?
     p Vendas estão fechadas, foi mal :(
   - else
     ul

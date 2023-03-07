@@ -1,0 +1,22 @@
+.flex.flex-col.gap-6
+  header.flex.flex-col.gap-2
+    h2.text-lg.text-neutral-600 Pedidos
+    section
+      h1.text-3xl.font-semibold.text-neutral-800 = "Pedido ##{@order.id}"
+      time.text-neutral-700.leading-none = @order.created_at.strftime('%d/%m/%Y %H:%M')
+
+  ul.flex.flex-col.gap-6
+    - @order.cart_products.each do |cart_product|
+      li.flex.items-stretch.gap-3.text-neutral-700
+        img.aspect-square.rounded.self-center class="w-[120px]" src=cart_product.product.thumb_path
+        .flex.flex-col.gap-4
+          .flex.flex.gap-2.items-center
+            p.text-3xl.text-center = cart_product.quantity
+            | x
+            .flex.flex-col.gap-0
+              h3.text-lg.font-medium.hover:underline.hover:text-brand-700 = link_to cart_product.product.name, cart_product.product, target: :_top
+              p.text-sm = number_to_currency cart_product.total_price_in_reais, locale: :'pt-BR'
+          .inline-flex.flex-wrap.gap-x-2.gap-y-1
+            - cart_product.variations.each do |key, value|
+              p.inline.text-xs.uppercase.rounded.border-slate-200.overflow-hidden.text-neutral-600
+                span.bg-slate-200.p-1.leading-snug = value

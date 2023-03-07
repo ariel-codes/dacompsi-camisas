@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buyer: one
+  cart: one
+  total_price: 1
+  paid: false
+  fulfilled: false
+  delivered: false
+
+two:
+  buyer: two
+  cart: two
+  total_price: 1
+  paid: false
+  fulfilled: false
+  delivered: false

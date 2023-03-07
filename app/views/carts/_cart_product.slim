@@ -9,7 +9,7 @@
             | x
           = button_to "-", {action: :change_quantity, params: {id: cart_product, change: -1}}, form_class: "contents", class: "text-sm leading-tight bg-brand-100 text-neutral-700 font-bold rounded px-1 hover:text-neutral-50 hover:bg-brand-500"
         .flex.flex-col.gap-0
-          h3.text-lg.font-medium.hover:underline.hover:text-brand-700 = link_to cart_product.product.name, cart_product.product
+          h3.text-lg.font-medium.hover:underline.hover:text-brand-700 = link_to cart_product.product.name, cart_product.product, target: :_top
           p.text-sm = number_to_currency cart_product.total_price_in_reais, locale: :'pt-BR'
       .inline-flex.flex-wrap.gap-x-2.gap-y-1
         - cart_product.variations.each do |key, value|
