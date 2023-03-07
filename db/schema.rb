@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_230638) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.boolean "closed"
+    t.boolean "closed", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,7 +70,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_230638) do
     t.json "variations", default: {}, null: false
     t.string "thumb_path", null: false
     t.string "carousel_paths", null: false
-    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

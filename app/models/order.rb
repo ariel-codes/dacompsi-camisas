@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :buyer
   belongs_to :cart
-  
+
   has_many :cart_products, through: :cart
 
   validates :buyer, :cart, :total_price, presence: true

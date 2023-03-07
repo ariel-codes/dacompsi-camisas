@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_cart
+  before_action :require_cart
 
   def show
   end
@@ -29,6 +29,7 @@ class CartsController < ApplicationController
       @buyer = Buyer.create!(buyer_params)
       session[:buyer_id] = @buyer.id
       @order = Order.create!(cart: @cart, buyer: @buyer, total_price: @cart.total_price)
+      @cart.close!
     end
 
     redirect_to order_path(@order), status: :see_other

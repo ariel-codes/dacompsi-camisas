@@ -1,5 +1,5 @@
 doctype html
-html
+html lang="pt-BR"
   head
     title DACompSI - Camisas de Curso
     meta name="viewport" content="width=device-width,initial-scale=1"
@@ -7,7 +7,10 @@ html
     = csp_meta_tag
 
     link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/themes/light.css"
-    script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/shoelace.js"
+    script{ type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/translations/pt.js"
+      integrity="sha256-NXjtZuLm0XA9fPeUMp+LU+WEhq4KKe7h+pgau3GxBm4=" crossorigin="anonymous"}
+    script{ type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.2.0/dist/components/carousel/carousel.js"
+      integrity="sha256-mWeoZWF1Slbi8u+3DwDgCl9dMFXEpP30Od07mI8QC1g=" crossorigin="anonymous" }
 
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
 
