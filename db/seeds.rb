@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 camisa231 = Product.create! price: 3200, name: "Camisa de Curso",
-  thumb_path: "/camisa-thumb.png",
-  carousel_paths: %w[/camisa-cc.png /camisa-si.png /camisa-tamanhos.png],
+  thumb_path: "camisa-thumb.png",
+  carousel_paths: %w[camisa-cc.png camisa-si.png camisa-tamanhos.png],
   variations: {
     "curso" => %w[Computação Sistemas],
     "tamanho" => %w[S M G],
@@ -17,8 +17,8 @@ camisa231 = Product.create! price: 3200, name: "Camisa de Curso",
   }
 
 jaqueta231 = Product.create! price: 3200, name: "Jaqueta DCC",
-  thumb_path: "/jaqueta-thumb.png",
-  carousel_paths: %w[/jaqueta-frente.png /jaqueta-verso.png /jaqueta-tamanhos.png],
+  thumb_path: "jaqueta-thumb.png",
+  carousel_paths: %w[jaqueta-frente.png jaqueta-verso.png jaqueta-tamanhos.png],
   variations: {
     "curso" => %w[Computação Sistemas],
     "tamanho" => %w[S M G],

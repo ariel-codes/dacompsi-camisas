@@ -6,7 +6,7 @@
   sl-carousel pagination=true navigation=true mouse-dragging=true loop=true style="--aspect-ratio: 1/1;"
     - @product.carousel_paths.each do |image_path|
       sl-carousel-item
-        img.aspect-square.rounded src=image_path
+        img.aspect-square.rounded src=asset_path("products/" + image_path)
 
   .flex.items-baseline.gap-2.w-full.justify-around
     span.text-xl.font-medium.text-neutral-800 = number_to_currency @product.price_in_reais, locale: :'pt-BR'
