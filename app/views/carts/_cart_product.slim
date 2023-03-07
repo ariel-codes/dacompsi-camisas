@@ -1,6 +1,6 @@
 = turbo_frame_tag cart_product do
   li.flex.items-stretch.gap-3.text-neutral-700
-    img.aspect-square.rounded.self-center class="w-[120px]" src=cart_product.product.thumb_path
+    img.aspect-square.rounded.self-center class="w-[120px]" src=asset_path("products/"+cart_product.product.thumb_path)
     .flex.flex-col.gap-4
       .flex.flex.gap-2.items-center
         .flex.flex-col.gap-1

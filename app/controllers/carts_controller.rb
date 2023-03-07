@@ -24,34 +24,14 @@ class CartsController < ApplicationController
   end
 
   def checkout
-    @buyer = Buyer.new
-  end
-
-  def order
-    Buyer.transaction do
-      @buyer = Buyer.create!(buyer_params)
-      session[:buyer_id] = @buyer.id
-      @order = Order.create!(cart: @cart, buyer: @buyer, total_price: @cart.total_price)
-      @cart.close!
-    end
-
-    redirect_to order_path(@order), status: :see_other
+    @buyer ||= Buyer.new
   end
 
   private
-
-  def require_cart
-    @cart ||= Cart.create!
-    session[:cart_id] = @cart.id
-  end
 
   def product_params
     product = Product.find(params[:product][:product_id])
     params.require(:product).permit(:product_id, :quantity,
       variations: product.variations.keys.map(&:to_sym))
-  end
-
-  def buyer_params
-    params.require(:buyer).permit(:name, :email, :telephone)
   end
 end

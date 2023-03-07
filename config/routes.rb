@@ -4,16 +4,19 @@ Rails.application.routes.draw do
     post :add_product
     post :change_quantity
     get :checkout
-    post :order
   end
 
-  resources :orders, only: [:index, :show], path: "pedidos"
+  resources :orders, only: [:index, :show, :create], path: "pedidos" do
+    get :public_link, on: :collection, path: "link-publico"
+  end
 
   resources :campaigns, path: "campanhas", only: [:index, :show] do
     resources :products, only: [:show], path: "produtos"
   end
 
   resources :products, only: [:show], path: "produtos"
+
+  delete :logout, to: "application#logout", path: "esquecer"
 
   # Defines the root path route ("/")
   root "campaigns#index"

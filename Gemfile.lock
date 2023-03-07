@@ -108,7 +108,15 @@ GEM
     irb (1.6.2)
       reline (>= 0.3.0)
     json (2.6.3)
+    kramdown (2.4.0)
+      rexml
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     language_server-protocol (3.17.0.3)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -117,6 +125,9 @@ GEM
       net-imap
       net-pop
       net-smtp
+    maildown (3.3.1)
+      actionmailer (>= 4.0.0)
+      kramdown-parser-gfm
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -254,6 +265,8 @@ DEPENDENCIES
   cuprite
   debug
   importmap-rails
+  letter_opener (~> 1.8)
+  maildown (~> 3.3)
   propshaft
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)

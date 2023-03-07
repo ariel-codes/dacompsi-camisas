@@ -1,10 +1,12 @@
 class Order < ApplicationRecord
+  has_secure_token
+
   belongs_to :buyer
-  belongs_to :cart
 
-  has_many :cart_products, through: :cart
+  has_one :cart
+  delegate :cart_products, to: :cart
 
-  validates_associated :buyer, :cart, :cart_products
+  validates_associated :buyer, :cart
   validates :buyer, :cart, :total_price, presence: true
 
   def total_price_in_reais

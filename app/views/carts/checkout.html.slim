@@ -4,7 +4,7 @@
     p.text-neutral-600
       | Preencha seus dados de contato para finalizar a compra.
 
-  = form_with model: @buyer, url: order_cart_url, method: :post,
+  = form_with model: @buyer, url: orders_url, method: :post,
           class: "grid grid-rows-1 grid-cols-auto gap-4 mb-4" do |form|
     = form.label :name, "Nome", class: 'flex items-baseline' do |label|
       span.basis-20 Nome

@@ -1,0 +1,18 @@
+# Obrigado por sua compra!
+
+Recebemos seu pedido agora a pouco e em breve estaremos enviando mais atualizações.
+Agradecemos pelo apoio e confiança no DACompSI 🎉☺️.
+
+## Detalhes do Pedido
+
+Você pode acompanhar o status do [seu pedido](<%= public_link_orders_url(token: @order.token) %>) em qualquer momento em nosso site.
+
+### Total
+
+<%= number_to_currency @order.total_price_in_reais, locale: :'pt-BR' %>
+
+### Itens do Pedido
+
+<% @order_items.each do |item| %>
+* <%= item.product.name %>: <%= item.quantity %> x <%= number_to_currency item.product.price_in_reais, locale: :'pt-BR' %>
+<% end %>

@@ -8,7 +8,7 @@
   ul.flex.flex-col.gap-6
     - @order.cart_products.each do |cart_product|
       li.flex.items-stretch.gap-3.text-neutral-700
-        img.aspect-square.rounded.self-center class="w-[120px]" src=cart_product.product.thumb_path
+        img.aspect-square.rounded.self-center class="w-[120px]" src=asset_path("products/" + cart_product.product.thumb_path)
         .flex.flex-col.gap-4
           .flex.flex.gap-2.items-center
             p.text-3xl.text-center = cart_product.quantity
@@ -20,3 +20,7 @@
             - cart_product.variations.each do |key, value|
               p.inline.text-xs.uppercase.rounded.border-slate-200.overflow-hidden.text-neutral-600
                 span.bg-slate-200.p-1.leading-snug = value
+
+  section.flex.gap-3
+    h3.text-2xl.font-medium.text-neutral-600.uppercase class="w-[120px]" total
+    p.text-lg = number_to_currency @order.total_price_in_reais, locale: :'pt-BR'

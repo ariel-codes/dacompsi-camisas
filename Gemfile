@@ -33,6 +33,15 @@ gem "slim-rails", "~> 3.6"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
+# Rails translation files
+gem "rails-i18n", "~> 7.0"
+
+# Use markdown for emails (and ay other view)
+gem "maildown", "~> 3.3"
+
+# Preview every email in the browser during development
+gem "letter_opener", "~> 1.8"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -70,5 +79,3 @@ group :test do
   gem "capybara"
   gem "cuprite"
 end
-
-gem "rails-i18n", "~> 7.0"

@@ -24,7 +24,9 @@ html lang="pt-BR"
       header = link_to root_path, class: "text-2xl font-bold text-brand-700 no-underline" do
         = image_tag "icon.png", class: "h-8 inline-block"
       ul class="flex gap-2 text-sm font-medium tracking-wide text-brand-900 uppercase"
-        li = link_to "pedidos", orders_path, class: "hover:text-brand-500 hover:underline" if @buyer
-        li = link_to "carrinho", cart_path, class: "hover:text-brand-500 hover:underline" if @cart
+        li = link_to "pedidos", orders_path, class: "hover:text-brand-500 hover:underline" if @buyer&.persisted?
+        li = link_to "carrinho", cart_path, class: "hover:text-brand-500 hover:underline" if @cart&.persisted?
+        li = button_to "⌫", {controller: :application, action: :logout}, method: :delete,
+                class: "hover:text-brand-500 hover:underline" if session[:buyer_id].present?
     main class="md:container md:mx-auto flex-grow flex flex-col p-3"
       = yield
