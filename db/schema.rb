@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_070916) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_114712) do
+  create_table "buyer_notifications", force: :cascade do |t|
+    t.integer "buyer_id", null: false
+    t.string "notification"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_buyer_notifications_on_buyer_id"
+    t.index ["notification", "buyer_id"], name: "index_buyer_notifications_on_notification_and_buyer_id", unique: true
+  end
+
   create_table "buyers", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -74,6 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_070916) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "buyer_notifications", "buyers"
   add_foreign_key "cart_products", "carts"
   add_foreign_key "cart_products", "products"
   add_foreign_key "carts", "orders"

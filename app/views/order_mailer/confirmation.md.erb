@@ -1,4 +1,4 @@
-# Obrigado por sua compra!
+# Obrigado pela compra <%= @buyer.split(" ").first %>!
 
 Recebemos seu pedido agora a pouco e em breve estaremos enviando mais atualizações.
 Agradecemos pelo apoio e confiança no DACompSI 🎉☺️.
@@ -16,3 +16,6 @@ Você pode acompanhar o status do [seu pedido](<%= public_link_orders_url(token:
 <% @order_items.each do |item| %>
 * <%= item.product.name %>: <%= item.quantity %> x <%= number_to_currency item.product.price_in_reais, locale: :'pt-BR' %>
 <% end %>
+
+Atenciosamente,
+DACompSI

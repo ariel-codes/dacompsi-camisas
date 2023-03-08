@@ -41,22 +41,33 @@ class PaymentService
     when "chargebacks"
       # TODO: handle chargebacks
     end
-    debugger
   end
 
   def process_payment_redirect(merchant_order_id)
     update_order_status(merchant_order_id)
-    debugger
   end
 
   private
+
+  def notify_buyer(order)
+    return if BuyerNotification.exists?(buyer: order.buyer, notification: order.payment_status)
+
+    case order.payment_status
+    when "completed"
+      OrderMailer.with(order: @order, buyer: @buyer).paid.deliver_later
+    when "failed"
+      OrderMailer.with(order: order, buyer: order.buyer).error.deliver_later
+    end
+
+    BuyerNotification.create!(buyer: order.buyer, notification: order.payment_status)
+  end
 
   def update_order_status(merchant_order_id)
     merchant_order = @sdk.merchant_order.get(merchant_order_id)[:response]
     return unless merchant_order["external_reference"].to_i == @order.id
 
     if merchant_order["status"] == "closed"
-      return @order.payment_completed!
+      @order.payment_completed!
     end
 
     if merchant_order["cancelled"]
@@ -75,6 +86,8 @@ class PaymentService
     when "reverted", "partially_reverted"
       @order.payment_failed!
     end
+
+    notify_buyer(order)
   end
 
   def order_items(cart_products)
