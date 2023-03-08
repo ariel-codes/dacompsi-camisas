@@ -30,3 +30,13 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
+  honeybadger:
+    feedback:
+      heading: "Quer nos ajudar a resolver?"
+      explanation: "Qualquer informação relevante já facilita."
+      submit: "Enviar"
+      thanks: "Obrigado pelo feedback!"
+      labels:
+        name: "Seu nome"
+        email: "Seu e-mail"
+        comment: "Comentário (obrigatório)"
