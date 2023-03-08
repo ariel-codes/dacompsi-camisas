@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_073326) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_070916) do
   create_table "buyers", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -55,12 +55,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_073326) do
   create_table "orders", force: :cascade do |t|
     t.integer "buyer_id", null: false
     t.integer "total_price", null: false
-    t.boolean "paid", default: false, null: false
-    t.boolean "fulfilled", default: false, null: false
-    t.boolean "delivered", default: false, null: false
+    t.string "payment_status", default: "pending", null: false
+    t.string "payment_preference_id"
+    t.string "token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "token", null: false
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
     t.index ["token"], name: "index_orders_on_token", unique: true
   end

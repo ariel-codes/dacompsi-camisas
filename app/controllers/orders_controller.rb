@@ -19,14 +19,22 @@ class OrdersController < ApplicationController
   end
 
   def create
+    init_point = nil
     Buyer.transaction do
       @buyer = Buyer.create!(buyer_params)
       session[:buyer_id] = @buyer.id
+
       @order = Order.create!(cart: @cart, buyer: @buyer, total_price: @cart.total_price)
-      OrderMailer.with(order: @order, buyer: @buyer).confirmation.deliver_later
+
+      preference_id, init_point = PaymentService.new(@order).create_payment(
+        order_url(@order), notify_order_url(@order, token: @order.token, source_news: :ipn)
+      )
+      @order.update!(payment_preference_id: preference_id)
     end
 
-    redirect_to order_path(@order), status: :see_other
+    OrderMailer.with(order: @order, buyer: @buyer).confirmation.deliver_later
+
+    redirect_to init_point, allow_other_host: true, status: :see_other
   end
 
   private

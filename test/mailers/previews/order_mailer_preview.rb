@@ -1,6 +1,5 @@
 # Preview all emails at http://localhost:3000/rails/mailers/order_mailer
 class OrderMailerPreview < ActionMailer::Preview
-
   # Preview this email at http://localhost:3000/rails/mailers/order_mailer/new
   def new
     OrderMailer.new
@@ -20,5 +19,4 @@ class OrderMailerPreview < ActionMailer::Preview
   def delivered
     OrderMailer.delivered
   end
-
 end

@@ -28,5 +28,5 @@ jaqueta231 = Product.create! price: 3200, name: "Jaqueta DCC",
 
 campanha231 = Campaign.create! name: "Camisas de Curso 2023/1",
   products: [camisa231, jaqueta231],
-  start: Date.new(2023, 03, 06),
-  end: Date.new(2023, 03, 06).next_week(:friday)
+  start: Date.new(2023, 0o3, 0o6),
+  end: Date.new(2023, 0o3, 0o6).next_week(:friday)

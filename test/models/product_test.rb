@@ -6,7 +6,7 @@ class ProductTest < ActiveSupport::TestCase
       variations: {"color" => %w[red green blue]}
     product.validate
     assert_empty product.errors[:variations]
-    
+
     invalid_product = Product.new name: "Test Product", price: 100,
       variations: {"color" => {red: :red}}
     invalid_product.validate

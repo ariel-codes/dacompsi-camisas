@@ -4,7 +4,7 @@
     p.text-neutral-600
       | Preencha seus dados de contato para finalizar a compra.
 
-  = form_with model: @buyer, url: orders_url, method: :post,
+  = form_with model: @buyer, data: {turbo: false}, url: orders_url, method: :post,
           class: "grid grid-rows-1 grid-cols-auto gap-4 mb-4" do |form|
     = form.label :name, "Nome", class: 'flex items-baseline' do |label|
       span.basis-20 Nome
@@ -17,4 +17,4 @@
       = form.telephone_field :telephone, required: true,
               pattern: '\d{2} \d{5}-\d{4}', placeholder: '99 99999-9999',
               class: 'flex-grow basis-40'
-    = form.submit "Pagar", class: "bg-brand-500 text-white font-semibold py-2 hover:bg-brand-600"
+    = form.submit "Pagar", class: "rounded bg-brand-500 text-white font-semibold py-2 hover:bg-brand-600"
