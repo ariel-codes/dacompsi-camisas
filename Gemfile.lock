@@ -125,6 +125,9 @@ GEM
       addressable (~> 2.8)
     letter_opener (1.8.1)
       launchy (>= 2.2, < 3)
+    litestack (0.1.7)
+      oj
+      sqlite3
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -163,6 +166,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
+    oj (3.14.2)
     parallel (1.22.1)
     parser (3.2.1.0)
       ast (~> 2.4.1)
@@ -297,6 +301,7 @@ DEPENDENCIES
   honeybadger (~> 5.0)
   importmap-rails
   letter_opener (~> 1.8)
+  litestack (~> 0.1.7)
   maildown (~> 3.3)
   mercadopago-sdk (~> 2.1)
   propshaft

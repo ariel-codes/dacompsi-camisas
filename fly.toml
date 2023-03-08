@@ -7,6 +7,7 @@ processes = []
 
 [env]
   DATABASE_URL = "sqlite3:///mnt/dacompsi_camisas/production.sqlite3"
+  CACHE_DB_URL = "sqlite3:///mnt/dacompsi_camisas/cache.sqlite3"
 
 [experimental]
   auto_rollback = true
