@@ -42,6 +42,8 @@ gem "maildown", "~> 3.3"
 # Preview every email in the browser during development
 gem "letter_opener", "~> 1.8"
 
+gem "mercadopago-sdk", "~> 2.1"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -63,7 +65,10 @@ group :development, :test do
 end
 
 group :development do
+  gem "dockerfile-rails", ">= 1.2"
+
   gem "standardrb", "~> 1.0"
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -79,5 +84,3 @@ group :test do
   gem "capybara"
   gem "cuprite"
 end
-
-gem "mercadopago-sdk", "~> 2.1"

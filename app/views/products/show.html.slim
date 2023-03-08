@@ -3,12 +3,15 @@
     h2.font-medium.text-neutral-600.hover:underline = link_to @campaign.name, @campaign
     h1.text-3xl.font-semibold.text-neutral-800 = @product.name
 
-  sl-carousel pagination=true navigation=true mouse-dragging=true loop=true style="--aspect-ratio: 1/1;"
-    - @product.carousel_paths.each do |image_path|
-      sl-carousel-item
-        img.aspect-square.rounded src=asset_path("products/" + image_path)
+  / sl-carousel.self-center pagination=true navigation=true style="--aspect-ratio: 1/1;" class=""
+  /   - .each do |image_path|
+  /     sl-carousel-item
+  /       img.aspect-square.rounded src=asset_path("products/" + image_path)
 
-  .flex.items-baseline.gap-2.w-full.justify-around
+
+  = render partial: "carousel", locals: {index: @carousel_index, carousel_paths: @product.carousel_paths}
+
+  .flex.items-baseline.gap-2.w-full.justify-between
     span.text-xl.font-medium.text-neutral-800 = number_to_currency @product.price_in_reais, locale: :'pt-BR'
     span |>
     span.font-semibold.text-sm.text-neutral-600.uppercase pix, cartão ou boleto
@@ -17,8 +20,8 @@
     = form.hidden_field :product_id, value: @product.id
     .grid.grid-rows-1.grid-cols-auto.gap-4.mb-4
       = form.label :quantity, class: 'flex items-baseline' do |label|
-        span class="w-[10ch]" Quantidade
-        .flex-grow.px-3
+        span class="shrink-0 basis-[10ch]" Quantidade
+        .flex-grow
           = form.number_field :quantity, value: 1, min: 1, required: true, class: 'w-1/2', 'validation-visible': "false"
       - @product.variations.each do |key, values|
         - field_name = "[variations][#{key}]"

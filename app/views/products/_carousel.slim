@@ -1,0 +1,6 @@
+= turbo_frame_tag "carousel", class: "flex items-center gap-2 text-2xl font-medium text-white justify-center" do
+  = button_to "<", {action: :carousel_move}, method: :patch, params: {carousel_index: index, direction: :prev},
+          form_class: "contents", class: "increment-button leading-none px-0.5 pt-1 pb-2"
+  = image_tag "products/" + carousel_paths[index], class: "aspect-square rounded"
+  = button_to ">", {action: :carousel_move}, method: :patch, params: {carousel_index: index, direction: :next},
+          form_class: "contents", class: " increment-button leading-none px-0.5 pt-1 pb-2"

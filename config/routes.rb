@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     resources :products, only: [:show], path: "produtos"
   end
 
-  resources :products, only: [:show], path: "produtos"
+  resources :products, only: [:show], path: "produtos" do
+    patch :carousel_move, on: :member
+  end
 
   delete :logout, to: "application#logout", path: "esquecer"
 

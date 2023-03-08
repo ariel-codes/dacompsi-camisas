@@ -8,7 +8,17 @@
         @apply valid:border-green-500 invalid:border-red-400 !important;
     }
 
-    input {
+    input, select {
         @apply focus:ring-2 ring-blue-400 rounded !important;
+    }
+}
+
+@layer components {
+    .max-container {
+        @apply px-[max(24px,calc(50vw-250px))];
+    }
+
+    .increment-button {
+        @apply bg-brand-100 text-neutral-700 font-bold rounded hover:text-neutral-50 hover:bg-brand-500;
     }
 }
