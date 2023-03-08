@@ -2,8 +2,8 @@ class CartProduct < ApplicationRecord
   belongs_to :cart
   belongs_to :product
 
-  validates :quantity, :total_price, presence: true, numericality: {greater_than: 0}
   validate :validate_variations
+  validates :quantity, :total_price, presence: true, numericality: {greater_than: 0}
 
   def total_price
     product.price * quantity
