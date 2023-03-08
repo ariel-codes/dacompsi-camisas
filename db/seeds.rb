@@ -6,27 +6,22 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-camisa231 = Product.create! price: 3200, name: "Camisa de Curso",
+camisa23_1 = Product.create! price: 32_00, name: "Camisa de Curso",
   thumb_path: "camisa-thumb.png",
   carousel_paths: %w[camisa-cc.png camisa-si.png camisa-tamanhos.png],
   variations: {
     "curso" => %w[Computação Sistemas],
-    "tamanho" => %w[S M G],
-    "cor" => %w[branco preto verde],
+    "tamanho" => %w[P PP M G GG XG],
+    "cor" => %w[preto branco azul vinho cinza rosa petróleo verde],
     "corte" => %w[t-shirt babylook]
   }
 
-jaqueta231 = Product.create! price: 3200, name: "Jaqueta DCC",
+jaqueta23_1 = Product.create! price: 172_00, name: "Jaqueta DCC",
   thumb_path: "jaqueta-thumb.png",
   carousel_paths: %w[jaqueta-frente.png jaqueta-verso.png jaqueta-tamanhos.png],
-  variations: {
-    "curso" => %w[Computação Sistemas],
-    "tamanho" => %w[S M G],
-    "cor" => %w[branco preto verde],
-    "corte" => %w[t-shirt babylook]
-  }
+  variations: {"tamanho" => %w[P PP M G GG]}
 
-campanha231 = Campaign.create! name: "Camisas de Curso 2023/1",
-  products: [camisa231, jaqueta231],
-  start: Date.new(2023, 0o3, 0o6),
-  end: Date.new(2023, 0o3, 0o6).next_week(:friday)
+campanha23_1 = Campaign.create! name: "Camisas de Curso 2023/1",
+  products: [camisa23_1, jaqueta23_1],
+  start: Date.new(2023, 3, 6),
+  end: Date.new(2023, 3, 6).next_week(:friday)

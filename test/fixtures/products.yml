@@ -1,7 +1,38 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#one:
-#  name: MyString
-#  price: MyString
-#  type:
-#  variations: MyString
+camisa:
+  price: 3200
+  name: "Camisa de Curso"
+  thumb_path: "camisa-thumb.png"
+  carousel_paths: '["camisa-cc.png", "camisa-si.png", "camisa-tamanhos.png"]'
+  variations:
+    curso:
+      - Computação
+      - Sistemas
+    tamanho:
+      - P
+      - PP
+      - M
+      - G
+      - GG
+      - XG
+    cor:
+      - branco
+      - preto
+      - verde
+    corte:
+      - t-shirt
+      - babylook
+
+jaqueta:
+  price: 17200
+  name: "Jaqueta DCC"
+  thumb_path: "jaqueta-thumb.png"
+  carousel_paths: '["jaqueta-frente.png", "jaqueta-verso.png", "jaqueta-tamanhos.png"]'
+  variations:
+    tamanho:
+      - PP
+      - P
+      - M
+      - G
+      - GG
