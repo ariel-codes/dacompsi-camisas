@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :show, :create], path: "pedidos" do
     get :public_link, on: :collection, path: "link-publico"
+  end
 
-    post :notify, to: "payment_notifications#notify", param: :order_id
+  resources :payment_notifications, param: :order_id, only: [] do
+    post :ipn
+    get :after_redirect
   end
 
   resources :campaigns, path: "campanhas", only: [:index, :show] do
