@@ -21,4 +21,8 @@
     .increment-button {
         @apply bg-brand-100 text-neutral-700 font-bold rounded hover:text-neutral-50 hover:bg-brand-500;
     }
+
+    .hero-button {
+        @apply rounded uppercase bg-brand-500 text-white font-semibold py-2 text-center hover:bg-brand-600;
+    }
 }

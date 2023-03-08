@@ -10,6 +10,6 @@
   .flex.flex-col.gap-3
     - if @continue_campaign
       = link_to "Continuar Comprando", campaign_path(@continue_campaign), target: :_top,
-              class: "w-full rounded bg-brand-50 text-brand-500 font-semibold py-2 text-center hover:bg-brand-100"
+              class: "w-full hero-button bg-brand-50 text-brand-500 hover:bg-brand-100"
     = turbo_frame_tag "cart-checkout", class: "contents" do
       = render partial: "checkout_button", locals: {cart: @cart}

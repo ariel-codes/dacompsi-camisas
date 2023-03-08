@@ -1,6 +1,6 @@
 # Seu pedido #<%= @order.id %> teve um erro no pagamento :(
 
-Seu pedido foi cancelado automaticamente 😪, mas você ainda pode tentar novamente.
+[Seu pedido](<%= public_link_orders_url(token: @order.token) %>) foi cancelado automaticamente 😪, mas você ainda pode tentar novamente.
 
 Atenciosamente,
 DACompSI
