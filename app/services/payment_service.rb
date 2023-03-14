@@ -57,7 +57,7 @@ class PaymentService
     when "completed"
       OrderMailer.with(order: @order, buyer: @buyer).paid.deliver_later
     when "failed"
-      OrderMailer.with(order: order, buyer: order.buyer).error.deliver_later
+      OrderMailer.with(order: order, buyer: order.buyer).failed.deliver_later
     end
 
     BuyerNotification.create!(buyer: order.buyer, notification: order.payment_status)

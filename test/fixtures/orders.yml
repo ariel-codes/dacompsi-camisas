@@ -3,13 +3,4 @@
 #one:
 #  buyer: one
 #  total_price: 1
-#  paid: false
-#  fulfilled: false
-#  delivered: false
-
-#two:
-#  buyer: two
-#  total_price: 1
-#  paid: false
-#  fulfilled: false
-#  delivered: false
+#  payment_status: pending

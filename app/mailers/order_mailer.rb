@@ -18,7 +18,7 @@ class OrderMailer < ApplicationMailer
     mail to: @order.buyer.email, subject: "[DACompSI] Confirmação de Pagamento - Pedido ##{@order.id}}"
   end
 
-  def error
+  def failed
     @order = params[:order]
 
     mail to: @order.buyer.email, subject: "[DACompSI] Erro no Pagamento - Pedido ##{@order.id}}"
