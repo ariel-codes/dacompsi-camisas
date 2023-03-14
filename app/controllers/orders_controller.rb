@@ -26,14 +26,11 @@ class OrdersController < ApplicationController
 
       @order = Order.create!(cart: @cart, buyer: @buyer, total_price: @cart.total_price)
 
-      preference_id, init_point = PaymentService.new(@order).create_payment(
+      init_point = PaymentService.new(@order).create_payment(
         notification_url: payment_notification_ipn_url(@order, token: @order.token, source_news: :ipn),
         back_url: payment_notification_after_redirect_url(@order, token: @order.token)
       )
-      @order.update!(payment_preference_id: preference_id)
     end
-
-    OrderMailer.with(order: @order, buyer: @buyer).confirmation.deliver_later
 
     redirect_to init_point, allow_other_host: true, status: :see_other
   end

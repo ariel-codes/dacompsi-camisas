@@ -31,8 +31,12 @@ class PaymentService
 
     preference = @sdk.preference.create(preference_data)[:response]
 
-    return ["id", "https://example.com/redirect_mp"] if Rails.env.test? # jfc MercadoPago is so bad...
-    [preference["id"], preference["init_point"]]
+    @order.update!(payment_preference_id: preference["id"])
+
+    notify_buyer
+
+    return "https://example.com/redirect_mp" if Rails.env.test? # jfc MercadoPago is so bad...
+    preference["init_point"]
   end
 
   def process_ipn(topic:, id:)
@@ -50,17 +54,21 @@ class PaymentService
 
   private
 
-  def notify_buyer(order)
-    return if BuyerNotification.exists?(buyer: order.buyer, notification: order.payment_status)
+  def notify_buyer
+    return if BuyerNotification.exists?(buyer: @order.buyer, notification: @order.payment_status)
+
+    mailer = OrderMailer.with(order: @order, buyer: @order.buyer)
 
     case order.payment_status
+    when "pending"
+      mailer.confirmation.deliver_later
     when "completed"
-      OrderMailer.with(order: @order, buyer: @buyer).paid.deliver_later
+      mailer.paid.deliver_later
     when "failed"
-      OrderMailer.with(order: order, buyer: order.buyer).failed.deliver_later
+      mailer.failed.deliver_later
     end
 
-    BuyerNotification.create!(buyer: order.buyer, notification: order.payment_status)
+    BuyerNotification.create!(buyer: @order.buyer, notification: @order.payment_status)
   end
 
   def update_order_status(merchant_order_id)
@@ -73,6 +81,7 @@ class PaymentService
 
     if merchant_order["cancelled"]
       # TODO: handle cancelled orders
+      return @order.payment_failed!
     end
 
     if merchant_order["expired"]
@@ -88,7 +97,7 @@ class PaymentService
       @order.payment_failed!
     end
 
-    notify_buyer(@order)
+    notify_buyer
   end
 
   def order_items(cart_products)
