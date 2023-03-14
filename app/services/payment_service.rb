@@ -88,7 +88,7 @@ class PaymentService
       @order.payment_failed!
     end
 
-    notify_buyer(order)
+    notify_buyer(@order)
   end
 
   def order_items(cart_products)

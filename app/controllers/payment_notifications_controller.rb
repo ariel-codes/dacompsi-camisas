@@ -5,8 +5,8 @@ class PaymentNotificationsController < ApplicationController
   before_action :retrieve_session_from_token, only: [:after_redirect]
 
   def ipn
-    ipn_params => {topic:, id:}
-    order = Order.find_by!(id: params[:order_id], token: params[:token])
+    ipn_params => {topic:, id:, payment_notification_order_id: order_id, token:}
+    order = Order.find_by!(id: order_id, token:)
     PaymentService.new(order).process_ipn(topic:, id:)
 
     head :ok
@@ -25,7 +25,7 @@ class PaymentNotificationsController < ApplicationController
   private
 
   def ipn_params
-    params.permit(:topic, :id, :token).to_h
+    params.permit(:topic, :id, :payment_notification_order_id, :token).to_h
   end
 
   def merchant_order_params
