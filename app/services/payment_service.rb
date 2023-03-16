@@ -35,7 +35,6 @@ class PaymentService
 
     notify_buyer
 
-    return "https://example.com/redirect_mp" if Rails.env.test? # jfc MercadoPago is so bad...
     preference["init_point"]
   end
 
@@ -54,22 +53,30 @@ class PaymentService
 
   private
 
+  # TODO: extract to a module/class
   def notify_buyer
     return if BuyerNotification.exists?(buyer: @order.buyer, notification: @order.payment_status)
 
     mailer = OrderMailer.with(order: @order, buyer: @order.buyer)
 
     case order.payment_status
-    when "pending"
-      mailer.confirmation.deliver_later
     when "completed"
       mailer.paid.deliver_later
     when "failed"
       mailer.failed.deliver_later
     end
 
+    case order.order_status
+    when "placed"
+      mailer.confirmation.deliver_later
+    when "cancelled"
+      mailer.cancelled.deliver_later
+    end
+
     BuyerNotification.create!(buyer: @order.buyer, notification: @order.payment_status)
   end
+
+  # https://www.mercadopago.com.br/developers/pt/reference/merchant_orders/_merchant_orders_id/get
 
   def update_order_status(merchant_order_id)
     merchant_order = @sdk.merchant_order.get(merchant_order_id)[:response]
@@ -77,23 +84,14 @@ class PaymentService
 
     if merchant_order["status"] == "closed"
       @order.payment_completed!
-    end
-
-    if merchant_order["cancelled"]
-      # TODO: handle cancelled orders
-      return @order.payment_failed!
-    end
-
-    if merchant_order["expired"]
-      return @order.payment_failed!
-    end
-
-    case merchant_order["order_status"]
-    when "payment_required", "partially_paid"
-      @order.payment_pending!
-    when "payment_in_process"
+    elsif merchant_order["order_status"] == "payment_in_process"
       @order.payment_processing!
-    when "reverted", "partially_reverted"
+    elsif merchant_order["cancelled"] ||
+        (merchant_order["order_status"] == "reverted" &&
+          merchant_order["payments"].all? { |p| p["refunded"].in?(%w[cancelled refunded]) })
+      # TODO: test this .all? block in production
+      @order.order_cancelled!
+    elsif merchant_order["status"] == "expired" || merchant_order["order_status"].in?(%w[partially_reverted expired])
       @order.payment_failed!
     end
 

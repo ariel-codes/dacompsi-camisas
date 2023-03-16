@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_114712) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_16_044420) do
   create_table "buyer_notifications", force: :cascade do |t|
     t.integer "buyer_id", null: false
     t.string "notification"
@@ -69,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_114712) do
     t.string "token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "order_status"
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
     t.index ["token"], name: "index_orders_on_token", unique: true
   end

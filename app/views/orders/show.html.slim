@@ -26,12 +26,8 @@
     p.text-2xl.text-neutral-800 = number_to_currency @order.total_price_in_reais, locale: :'pt-BR'
   section.flex.gap-3.items-center
     h3.text-lg.font-medium.text-neutral-600.uppercase class="w-[120px]" status
-    - if @order.payment_pending?
-      = render partial: "open_payment", locals: {preference_id: @order.payment_preference_id}
-      button.text-sm.bg-brand-500.text-white.font-semibold.py-1.hover:bg-brand-600.rounded.flex-grow.uppercase{
-        type="button" onclick="$checkout.open()"} Aguardando Pagamento
-    - else
-      p.inline.text-neutral-700.text-sm.rounded.bg-slate-200.px-2.py-1
-        = "Processando Pagamento" if @order.payment_processing?
-        span.text-green-700 = "Pagamento Realizado" if @order.payment_completed?
-        span.text-red-700 = "Pagamento Recusado" if @order.payment_failed?
+    p.inline.text-neutral-700.text-sm.rounded.bg-slate-200.px-2.py-1
+      = "Aguardando Pagamento" if @order.payment_pending?
+      span.text-yellow-700 = "Processando Pagamento" if @order.payment_processing?
+      span.text-green-700 = "Pagamento Realizado" if @order.payment_completed?
+      span.text-red-700 = "Pagamento Recusado" if @order.payment_failed?

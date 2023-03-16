@@ -9,18 +9,30 @@ class OrderMailer < ApplicationMailer
     @order = params[:order]
     @order_items = @order.cart_products
 
-    mail to: @buyer.email, subject: "[DACompSI] Confirmação de Compra - Pedido ##{@order.id}}"
+    mail to: @buyer.email, subject: subject("Confirmação de Compra")
   end
 
   def paid
     @order = params[:order]
 
-    mail to: @order.buyer.email, subject: "[DACompSI] Confirmação de Pagamento - Pedido ##{@order.id}}"
+    mail to: @order.buyer.email, subject: subject("Confirmação de Pagamento")
   end
 
   def failed
     @order = params[:order]
 
-    mail to: @order.buyer.email, subject: "[DACompSI] Erro no Pagamento - Pedido ##{@order.id}}"
+    mail to: @order.buyer.email, subject: subject("Erro no Pagamento")
+  end
+
+  def cancelled
+    @order = params[:order]
+
+    mail to: @order.buyer.email, subject: subject("Pedido Cancelado")
+  end
+
+  private
+
+  def subject(action)
+    "[DACompSI] #{action} - Pedido ##{@order.id}"
   end
 end
