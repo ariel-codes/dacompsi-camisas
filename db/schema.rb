@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_16_044420) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_16_225509) do
   create_table "buyer_notifications", force: :cascade do |t|
     t.integer "buyer_id", null: false
     t.string "notification"
@@ -59,6 +59,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_044420) do
     t.datetime "updated_at", null: false
     t.integer "order_id"
     t.index ["order_id"], name: "index_carts_on_order_id"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "orders", force: :cascade do |t|

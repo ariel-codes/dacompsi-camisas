@@ -6,7 +6,7 @@ class OrderMailerTest < ActionMailer::TestCase
     cart = Cart.create! cart_products: [
       CartProduct.new(product: products(:camisa), quantity: 1, variations: {
         curso: "Computação", tamanho: "M", cor: "verde", corte: "t-shirt"
-      }),
+      })
     ]
     @order = Order.create! cart:, buyer: @buyer, total_price: cart.total_price
   end

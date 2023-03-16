@@ -8,7 +8,6 @@ class PurchaseTest < ApplicationSystemTestCase
   MERCHANT_ORDER_ID = "M-1"
 
   attr_accessor :campaign, :order, :preference_mock, :merchant_order_mock, :back_url
-  attr_reader :mailer_args
 
   setup do
     self.campaign = campaigns(:camisas_2023_1)

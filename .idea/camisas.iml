@@ -399,6 +399,45 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="delayed_job (vbundled(4.1.11)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/contrib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/recipes" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/contrib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/recipes" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/contrib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job-4.1.11/recipes" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="delayed_job_active_record (vbundled(4.1.7)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job_active_record-4.1.7/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/delayed_job_active_record-4.1.7/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="dockerfile-rails (vbundled(1.2.5)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1872,6 +1911,9 @@
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="delayed_job" />
+        <option value="delayed_job:active_record" />
+        <option value="delayed_job:upgrade" />
         <option value="dockerfile" />
         <option value="erb:controller" />
         <option value="erb:mailer" />
@@ -1908,6 +1950,9 @@
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="delayed_job" />
+        <option value="delayed_job:active_record" />
+        <option value="delayed_job:upgrade" />
         <option value="dockerfile" />
         <option value="erb:controller" />
         <option value="erb:mailer" />
@@ -2104,6 +2149,16 @@
           <RakeTaskImpl id="importmap">
             <subtasks>
               <RakeTaskImpl description="Setup Importmap for the app" fullCommand="importmap:install" id="install" />
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl id="jobs">
+            <subtasks>
+              <RakeTaskImpl description="Exit with error status if any jobs older than max_age seconds haven't been attempted yet" fullCommand="jobs:check[max_age]" id="check[max_age]" />
+              <RakeTaskImpl description="Clear the delayed_job queue" fullCommand="jobs:clear" id="clear" />
+              <RakeTaskImpl description="Start a delayed_job worker" fullCommand="jobs:work" id="work" />
+              <RakeTaskImpl description="Start a delayed_job worker and exit when all available jobs are complete" fullCommand="jobs:workoff" id="workoff" />
+              <RakeTaskImpl description="" fullCommand="jobs:check" id="check" />
+              <RakeTaskImpl description="" fullCommand="jobs:environment_options" id="environment_options" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="log">

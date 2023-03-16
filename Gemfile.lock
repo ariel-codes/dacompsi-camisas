@@ -88,6 +88,11 @@ GEM
       capybara (~> 3.0)
       ferrum (~> 0.13.0)
     date (3.3.3)
+    delayed_job (4.1.11)
+      activesupport (>= 3.0, < 8.0)
+    delayed_job_active_record (4.1.7)
+      activerecord (>= 3.0, < 8.0)
+      delayed_job (>= 3.0, < 5)
     dockerfile-rails (1.2.5)
       rails
     domain_name (0.5.20190701)
@@ -284,6 +289,7 @@ DEPENDENCIES
   bootsnap
   capybara
   cuprite
+  delayed_job_active_record (~> 4.1)
   dockerfile-rails (>= 1.2)
   honeybadger (~> 5.0)
   importmap-rails

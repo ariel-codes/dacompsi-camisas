@@ -85,3 +85,5 @@ group :test do
   gem "capybara"
   gem "cuprite"
 end
+
+gem "delayed_job_active_record", "~> 4.1"
