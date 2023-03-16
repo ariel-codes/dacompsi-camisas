@@ -5,8 +5,8 @@ class OrderMailer < ApplicationMailer
   #   en.order_mailer.new.subject
 
   def confirmation
-    @buyer = params[:buyer]
     @order = params[:order]
+    @buyer = @order.buyer
     @order_items = @order.cart_products
 
     mail to: @buyer.email, subject: subject("Confirmação de Compra")

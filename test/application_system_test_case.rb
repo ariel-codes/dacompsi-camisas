@@ -1,4 +1,5 @@
 require "test_helper"
+require "minitest/autorun"
 require "capybara/cuprite"
 
 Capybara.default_max_wait_time = 2

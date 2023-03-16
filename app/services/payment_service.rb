@@ -57,16 +57,16 @@ class PaymentService
   def notify_buyer
     return if BuyerNotification.exists?(buyer: @order.buyer, notification: @order.payment_status)
 
-    mailer = OrderMailer.with(order: @order, buyer: @order.buyer)
+    mailer = OrderMailer.with(order: @order)
 
-    case order.payment_status
+    case @order.payment_status
     when "completed"
       mailer.paid.deliver_later
     when "failed"
       mailer.failed.deliver_later
     end
 
-    case order.order_status
+    case @order.order_status
     when "placed"
       mailer.confirmation.deliver_later
     when "cancelled"

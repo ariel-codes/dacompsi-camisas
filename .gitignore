@@ -38,4 +38,4 @@
 !/app/assets/builds/.keep
 
 # ENV keys for local development/testing
-/config/env.yml
+/config/env.development.yml
