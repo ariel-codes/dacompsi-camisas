@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   include TokenSession
 
+  before_action :require_cart, only: :create
   before_action :require_buyer, except: [:create, :public_link]
   before_action :retrieve_session_from_token, only: :public_link
 

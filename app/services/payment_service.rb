@@ -20,7 +20,6 @@ class PaymentService
       external_reference: @order.id,
       items: order_items(@order.cart_products),
       payer: buyer_data(@order.buyer),
-      binary_mode: true,
       auto_return: "approved",
       back_urls: {
         success: back_url,
@@ -89,7 +88,6 @@ class PaymentService
     elsif merchant_order["cancelled"] ||
         (merchant_order["order_status"] == "reverted" &&
           merchant_order["payments"].all? { |p| p["refunded"].in?(%w[cancelled refunded]) })
-      # TODO: test this .all? block in production
       @order.order_cancelled!
     elsif merchant_order["status"] == "expired" || merchant_order["order_status"].in?(%w[partially_reverted expired])
       @order.payment_failed!

@@ -88,6 +88,9 @@ GEM
       capybara (~> 3.0)
       ferrum (~> 0.13.0)
     date (3.3.3)
+    debug (1.7.1)
+      irb (>= 1.5.0)
+      reline (>= 0.3.1)
     delayed_job (4.1.11)
       activesupport (>= 3.0, < 8.0)
     delayed_job_active_record (4.1.7)
@@ -114,6 +117,9 @@ GEM
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    io-console (0.6.0)
+    irb (1.6.3)
+      reline (>= 0.3.0)
     json (2.6.3)
     kramdown (2.4.0)
       rexml
@@ -210,6 +216,8 @@ GEM
     rake (13.0.6)
     redis (4.8.1)
     regexp_parser (2.7.0)
+    reline (0.3.2)
+      io-console (~> 0.5)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -289,6 +297,7 @@ DEPENDENCIES
   bootsnap
   capybara
   cuprite
+  debug (>= 1.0.0)
   delayed_job_active_record (~> 4.1)
   dockerfile-rails (>= 1.2)
   honeybadger (~> 5.0)

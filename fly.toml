@@ -7,6 +7,7 @@ processes = []
 
 [env]
   DATABASE_URL = "sqlite3:///mnt/dacompsi_shop_db/production.sqlite3"
+  OVERMIND_SOCKET = "/rails/tmp/.overmind.sock"
 
 [experimental]
   auto_rollback = true
@@ -14,7 +15,7 @@ processes = []
 [[services]]
   http_checks = []
   internal_port = 3000
-  processes = ["web"]
+  processes = ["app"]
   protocol = "tcp"
   script_checks = []
   [services.concurrency]
@@ -44,7 +45,3 @@ processes = []
 [mounts]
   source="dacompsi_shop_db"
   destination="/mnt/dacompsi_shop_db"
-
-[processes]
-  web = "bin/rails fly:server"
-  worker = "bin/rails jobs:work"

@@ -46,6 +46,8 @@ gem "mercadopago-sdk", "~> 2.1"
 
 gem "honeybadger", "~> 5.0"
 
+gem "delayed_job_active_record", "~> 4.1"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -63,6 +65,7 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "debug", ">= 1.0.0"
 end
 
 group :development do
@@ -85,5 +88,3 @@ group :test do
   gem "capybara"
   gem "cuprite"
 end
-
-gem "delayed_job_active_record", "~> 4.1"

@@ -4,17 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Rubymine configs">
+    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Switch to DelayedJob">
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/camisas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/camisas.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d34a322e-1c03-4dd0-9d9e-1e0350bf7ad1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d34a322e-1c03-4dd0-9d9e-1e0350bf7ad1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile.dev" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile.dev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/payment_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/payment_service.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/docker-entrypoint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/production.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fly.toml" beforeDir="false" afterPath="$PROJECT_DIR$/fly.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/mailers/order_mailer_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/mailers/order_mailer_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/system/purchase_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/system/purchase_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kill" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tasks/fly.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/fly.rake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +44,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/fly.toml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/vendor/bundle/ruby/3.2.0/gems/minitest-5.18.0/lib/minitest/mock.rb" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -55,18 +65,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/ariel/Workspace/dacompsi/camisas/config",
+    "last_opened_file_path": "/Users/ariel/Workspace/dacompsi/camisas",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "ruby.rails.projectView.checked": "true",
     "ruby.structure.view.model.defaults.configured": "true",
-    "settings.editor.selected.configurable": "Errors",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/app/views/order_mailer" />
     </key>
@@ -151,10 +162,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix PaymentNotificationsController params" />
     <MESSAGE value="Change PaymentService#update_order_status status logic &amp; handle refunds" />
     <MESSAGE value="Rubymine configs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rubymine configs" />
+    <MESSAGE value="Switch to DelayedJob" />
+    <option name="LAST_COMMIT_MESSAGE" value="Switch to DelayedJob" />
   </component>
 </project>

@@ -15,9 +15,9 @@ namespace :fly do
   # SERVER step:
   #  - changes to the filesystem made here are deployed
   #  - full access to secrets, databases
-  #  - failures here result in VM being stated, shutdown, and rolled back
+  #  - failures here result in VM being started, shutdown, and rolled back
   #    to last successful deploy (if any).
   task server: "db:migrate" do
-    sh "bin/rails server"
+    sh "overmind", "start"
   end
 end

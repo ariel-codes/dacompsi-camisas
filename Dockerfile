@@ -42,7 +42,7 @@ RUN bundle exec bootsnap precompile app/ lib/
 RUN grep -l '#!/usr/bin/env ruby' /rails/bin/* | xargs sed -i '/^#!/aDir.chdir File.expand_path("..", __dir__)'
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE=DUMMY ./bin/rails assets:precompile
+RUN SECRET_KEY_BASE=DUMMY ./bin/rails fly:build
 
 
 # Final stage for app image
@@ -50,8 +50,13 @@ FROM base
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y libsqlite3-0 && \
+    apt-get install --no-install-recommends -y libsqlite3-0 tmux && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Install overmind for Procfile support
+RUN curl -sSL https://github.com/DarthSim/overmind/releases/download/v2.4.0/overmind-v2.4.0-linux-amd64.gz -o /tmp/overmind.gz && \
+    gunzip -d /tmp/overmind.gz && mv /tmp/overmind /usr/local/bin/overmind && \
+    chmod +x /usr/local/bin/overmind
 
 # Run and own the application files as a non-root user for security
 RUN useradd rails --home /rails --shell /bin/bash
@@ -67,8 +72,7 @@ ENV RAILS_LOG_TO_STDOUT="1" \
     RUBY_YJIT_ENABLE="1"
 
 # Entrypoint prepares the database.
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+# Starts the server by default, this can be overwritten at runtime
+ENTRYPOINT ["/rails/bin/rails", "fly:server"]
 
-# Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server"]

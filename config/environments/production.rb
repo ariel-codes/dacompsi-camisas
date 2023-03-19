@@ -99,4 +99,10 @@ Rails.application.configure do
     open_timeout: 15,
     read_timeout: 15
   }
+
+  config.hosts << "dacompsi.shop"
+
+  config.host_authorization = {
+    response_app: -> (env) { [204, {"Content-Type" => "text/plain"}, ["No Content"]] }
+  }
 end
