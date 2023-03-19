@@ -48,6 +48,8 @@ gem "honeybadger", "~> 5.0"
 
 gem "delayed_job_active_record", "~> 4.1"
 
+gem "commonmarker", "~> 1.0.0.pre8"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

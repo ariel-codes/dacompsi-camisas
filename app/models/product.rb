@@ -1,3 +1,5 @@
+require "commonmarker"
+
 class Product < ApplicationRecord
   has_and_belongs_to_many :campaigns
 
@@ -9,6 +11,13 @@ class Product < ApplicationRecord
 
   def price_in_reais
     price / 100.0
+  end
+
+  def description_html
+    ::Commonmarker.to_html(description, options: {
+      parse: {smart: true},
+      extension: {description_lists: true, table: true}
+    })
   end
 
   private

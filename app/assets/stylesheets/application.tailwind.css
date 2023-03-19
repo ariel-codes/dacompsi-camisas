@@ -25,4 +25,8 @@
     .hero-button {
         @apply rounded uppercase bg-brand-500 text-white font-semibold py-2 text-center hover:bg-brand-600;
     }
+
+    .markdown {
+        @apply prose prose-neutral prose-th:underline prose-headings:mt-2;
+    }
 }

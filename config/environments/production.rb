@@ -86,7 +86,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.active_record.sqlite3_production_warning = false
 
-
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.dcc.ufmg.br",
@@ -101,6 +100,6 @@ Rails.application.configure do
   config.hosts << "dacompsi.shop"
 
   config.host_authorization = {
-    response_app: -> (env) { [204, {"Content-Type" => "text/plain"}, ["No Content"]] }
+    response_app: ->(env) { [204, {"Content-Type" => "text/plain"}, ["No Content"]] }
   }
 end

@@ -1,4 +1,4 @@
-.flex.flex-col.gap-6
+.flex.flex-col.gap-6.mb-10
   header
     h2.font-medium.text-neutral-600.hover:underline = link_to @campaign.name, @campaign
     h1.text-3xl.font-semibold.text-neutral-800 = @product.name
@@ -10,16 +10,18 @@
     span |>
     span.font-semibold.text-sm.text-neutral-600.uppercase pix, cartão ou boleto
 
-  = form_with scope: :product, url: add_product_cart_path, method: :post do |form|
+  = form_with scope: :product, url: add_product_cart_path, method: :post,
+    class: "grid grid-rows-1 grid-cols-auto gap-4" do |form|
     = form.hidden_field :product_id, value: @product.id
-    .grid.grid-rows-1.grid-cols-auto.gap-4.mb-4
-      = form.label :quantity, class: 'flex items-baseline' do |label|
-        span class="shrink-0 basis-[10ch]" Quantidade
-        .flex-grow
-          = form.number_field :quantity, value: 1, min: 1, required: true, class: 'w-1/2', 'validation-visible': "false"
-      - @product.variations.each do |key, values|
-        - field_name = "[variations][#{key}]"
-        = form.label field_name, class: 'flex items-baseline' do |label|
-          span class="w-[10ch]" = key.titleize
-          = form.select field_name, values, {}, class: 'flex-grow'
-      = submit_tag "Adicionar ao Carrinho", class: "w-full hero-button"
+    = form.label :quantity, class: 'flex items-baseline' do |label|
+      span class="shrink-0 basis-[10ch]" Quantidade
+      .flex-grow
+        = form.number_field :quantity, value: 1, min: 1, required: true, class: 'w-1/2', 'validation-visible': "false"
+    - @product.variations.each do |key, values|
+      - field_name = "[variations][#{key}]"
+      = form.label field_name, class: 'flex items-baseline' do |label|
+        span class="w-[10ch]" = key.titleize
+        = form.select field_name, values, {}, class: 'flex-grow'
+    = submit_tag "Adicionar ao Carrinho", class: "w-full hero-button"
+
+  section.markdown == @product.description_html

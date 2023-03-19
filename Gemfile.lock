@@ -82,6 +82,8 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    commonmarker (1.0.0.pre8-x86_64-darwin)
+    commonmarker (1.0.0.pre8-x86_64-linux)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     cuprite (0.14.3)
@@ -296,6 +298,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
+  commonmarker (~> 1.0.0.pre8)
   cuprite
   debug (>= 1.0.0)
   delayed_job_active_record (~> 4.1)
