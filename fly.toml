@@ -6,6 +6,8 @@ kill_timeout = 5
 processes = []
 
 [env]
+  HOST = "dacompsi.shop"
+  PROTOCOL = "https"
   DATABASE_URL = "sqlite3:///mnt/dacompsi_shop_db/production.sqlite3"
   OVERMIND_SOCKET = "/rails/tmp/.overmind.sock"
 

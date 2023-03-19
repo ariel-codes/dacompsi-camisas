@@ -103,7 +103,7 @@ class PaymentService
         title: product.name,
         unit_price: product.price_in_reais,
         quantity: item.quantity,
-        picture_url: asset_url("products/" + product.thumb_path),
+        picture_url: Rails.application.routes.url_helpers.rails_blob_url(product.thumbnail),
         currency_id: "BRL"
       }
     end

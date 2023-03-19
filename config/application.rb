@@ -36,5 +36,7 @@ module Camisas
     config.i18n.available_locales = ["pt-BR"]
     config.i18n.default_locale = "pt-BR"
     config.beginning_of_week = :sunday
+
+    routes.default_url_options = {host: ENV.fetch("URL_HOST", "localhost"), protocol: ENV.fetch("URL_PROTOCOL", "http")}
   end
 end

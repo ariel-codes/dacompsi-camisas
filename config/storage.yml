@@ -2,9 +2,13 @@ test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
 
-local:
+dev:
   service: Disk
   root: <%= Rails.root.join("storage") %>
+
+fly_volume:
+  service: Disk
+  root: "/mnt/dacompsi_shop_db/storage"
 
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:

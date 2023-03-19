@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     elsif params[:direction] == "next"
       1
     end
-    @carousel_index = @carousel_index % @product.carousel_paths.size
+    @carousel_index = @carousel_index % @product.images.size
 
     render "show"
   end

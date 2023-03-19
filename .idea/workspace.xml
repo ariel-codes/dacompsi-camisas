@@ -4,23 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Switch to DelayedJob">
-      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/camisas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/camisas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d34a322e-1c03-4dd0-9d9e-1e0350bf7ad1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d34a322e-1c03-4dd0-9d9e-1e0350bf7ad1.xml" afterDir="false" />
+    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Run separate processes for server and jobs in prod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/products_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/campaign.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/campaign.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/product.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/payment_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/payment_service.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/docker-entrypoint" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/campaigns/show.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/campaigns/show.html.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/carts/_cart_product.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/_cart_product.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/orders/show.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/show.html.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/products/_carousel.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/_carousel.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/products/show.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.html.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/development.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/development.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/production.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/environments/test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/storage.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/storage.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fly.toml" beforeDir="false" afterPath="$PROJECT_DIR$/fly.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kill" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/tasks/fly.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/fly.rake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,6 +190,7 @@
     <MESSAGE value="Change PaymentService#update_order_status status logic &amp; handle refunds" />
     <MESSAGE value="Rubymine configs" />
     <MESSAGE value="Switch to DelayedJob" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switch to DelayedJob" />
+    <MESSAGE value="Run separate processes for server and jobs in prod" />
+    <option name="LAST_COMMIT_MESSAGE" value="Run separate processes for server and jobs in prod" />
   </component>
 </project>

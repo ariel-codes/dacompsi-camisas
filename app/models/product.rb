@@ -1,11 +1,11 @@
 class Product < ApplicationRecord
-  VARIATIONS = []
-
-  serialize :carousel_paths, JSON
-
   has_and_belongs_to_many :campaigns
 
+  has_one_attached :thumbnail
+  has_many_attached :images
+
   validate :validate_variations
+  validates :price, presence: true, numericality: {greater_than_or_equal_to: 0}
 
   def price_in_reais
     price / 100.0
