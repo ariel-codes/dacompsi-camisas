@@ -1,4 +1,6 @@
 class Cart < ApplicationRecord
+  visitable :ahoy_visit
+
   belongs_to :order, optional: true
 
   has_many :cart_products, dependent: :destroy

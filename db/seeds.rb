@@ -14,6 +14,8 @@ def image_data(*filenames)
 end
 
 camisa23_1 = Product.create! price: 32_00, name: "Camisa de Curso",
+  thumbnail: image_data("camisa-thumb.png").first,
+  images: image_data(%w[camisa-cc.png camisa-si.png]),
   variations: {
     "corte" => %w[t-shirt babylook],
     "curso" => %w[Computação Sistemas],
@@ -50,10 +52,9 @@ camisa23_1 = Product.create! price: 32_00, name: "Camisa de Curso",
     | XG      | 81cm        | 63cm    |
   MARKDOWN
 
-camisa23_1.thumbnail.attach image_data("camisa-thumb.png").first
-camisa23_1.images.attach image_data(%w[camisa-cc.png camisa-si.png])
-
 jaqueta23_1 = Product.create! price: 172_00, name: "Jaqueta DCC",
+  thumbnail: image_data("jaqueta-thumb.png").first,
+  images: image_data(%w[jaqueta-frente.png jaqueta-verso.png]),
   variations: {"tamanho" => %w[PP P M G GG]},
   description: <<~MARKDOWN.strip
     ## LANÇAMENTO
@@ -78,9 +79,6 @@ jaqueta23_1 = Product.create! price: 172_00, name: "Jaqueta DCC",
     | G       | 78cm        | 61cm    |
     | GG      | 82cm        | 65cm    |
   MARKDOWN
-
-jaqueta23_1.thumbnail.attach image_data("jaqueta-thumb.png").first
-jaqueta23_1.images.attach image_data(%w[jaqueta-frente.png jaqueta-verso.png])
 
 campanha23_1 = Campaign.create! name: "Camisas de Curso 2023/1",
   products: [camisa23_1, jaqueta23_1],

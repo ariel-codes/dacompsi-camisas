@@ -1,7 +1,7 @@
 class PaymentNotificationsController < ApplicationController
   include TokenSession
 
-  skip_before_action :verify_authenticity_token
+  skip_before_action :track_ahoy_visit, :verify_authenticity_token
   before_action :retrieve_session_from_token, only: [:after_redirect]
 
   def ipn

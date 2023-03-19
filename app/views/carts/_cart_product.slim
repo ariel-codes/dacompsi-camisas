@@ -4,10 +4,10 @@
     .flex.flex-col.gap-4
       .flex.flex.gap-2.items-center
         .flex.flex-col.gap-1
-          = button_to "+", {action: :change_quantity, params: {id: cart_product, change: +1}}, form_class: "contents", class: "increment-button text-sm px-1 leading-tight"
+          = button_to "+", {action: :change_quantity, params: {cart_product_id: cart_product, change: +1}}, form_class: "contents", class: "increment-button text-sm px-1 leading-tight"
           p.text-2xl.leading-none.text-center = cart_product.quantity
             | x
-          = button_to "-", {action: :change_quantity, params: {id: cart_product, change: -1}}, form_class: "contents", class: "increment-button text-sm px-1 leading-tight"
+          = button_to "-", {action: :change_quantity, params: {cart_product_id: cart_product, change: -1}}, form_class: "contents", class: "increment-button text-sm px-1 leading-tight"
         .flex.flex-col.gap-0
           h3.text-lg.font-medium.hover:underline.hover:text-brand-700 = link_to cart_product.product.name, cart_product.product, target: :_top
           p.text-sm = number_to_currency cart_product.total_price_in_reais, locale: :'pt-BR'

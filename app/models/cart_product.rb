@@ -14,8 +14,9 @@ class CartProduct < ApplicationRecord
   end
 
   def change_quantity(change)
-    if quantity + change > 0
-      increment!(:quantity, change)
+    new_quantity = change + quantity
+    if new_quantity > 0
+      update!(quantity: new_quantity)
     else
       destroy!
     end

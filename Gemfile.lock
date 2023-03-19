@@ -73,6 +73,10 @@ GEM
       addressable (>= 2.3.2)
       nokogiri
       safely_block (>= 0.1.1)
+    ahoy_matey (4.2.1)
+      activesupport (>= 5.2)
+      device_detector
+      safely_block (>= 0.2.1)
     ast (2.4.2)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -103,6 +107,7 @@ GEM
     delayed_job_active_record (4.1.7)
       activerecord (>= 3.0, < 8.0)
       delayed_job (>= 3.0, < 5)
+    device_detector (1.1.0)
     dockerfile-rails (1.2.5)
       rails
     domain_name (0.5.20190701)
@@ -305,6 +310,7 @@ PLATFORMS
 
 DEPENDENCIES
   ahoy_email (~> 2.1)
+  ahoy_matey (~> 4.2)
   bootsnap
   capybara
   commonmarker (~> 1.0.0.pre8)

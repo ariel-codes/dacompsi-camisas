@@ -29,4 +29,8 @@ class ApplicationController < ActionController::Base
   def require_buyer
     redirect_to root_path, status: :see_other unless @buyer
   end
+
+  def current_user
+    @buyer
+  end
 end

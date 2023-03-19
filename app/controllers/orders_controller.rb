@@ -7,13 +7,16 @@ class OrdersController < ApplicationController
 
   def index
     @orders = @buyer.orders
+    ahoy.track "index_orders", orders: @orders.map(&:id)
   end
 
   def show
     @order = @buyer.orders.find(params[:id])
+    ahoy.track "view_order", order_id: @order.id, public_link: false
   end
 
   def public_link
+    ahoy.track "view_order", order_id: @order.id, public_link: true
     render "show"
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path, status: :see_other

@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  visitable :ahoy_visit
   has_secure_token
 
   enum :payment_status,

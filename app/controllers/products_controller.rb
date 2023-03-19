@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, :set_carousel_index
 
   def show
+    ahoy.track "view_product", product_id: @product.id
   end
 
   def carousel_move

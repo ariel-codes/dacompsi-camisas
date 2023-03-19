@@ -1,4 +1,6 @@
 class Buyer < ApplicationRecord
+  has_many :visits, class_name: "Ahoy::Visit"
+
   has_many :orders, dependent: :restrict_with_exception
   has_many :emails, class_name: "Ahoy::Message", as: :user, dependent: :destroy
 

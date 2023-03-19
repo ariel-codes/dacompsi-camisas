@@ -42,13 +42,21 @@ gem "maildown", "~> 3.3"
 # Preview every email in the browser during development
 gem "letter_opener", "~> 1.8"
 
+# Payment gateway
 gem "mercadopago-sdk", "~> 2.1"
 
+# Error tracking
 gem "honeybadger", "~> 5.0"
 
+# Active Job backend
 gem "delayed_job_active_record", "~> 4.1"
 
+# Markdown parser
 gem "commonmarker", "~> 1.0.0.pre8"
+
+# Analytics
+gem "ahoy_email", "~> 2.1"
+gem "ahoy_matey", "~> 4.2"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -71,8 +79,10 @@ group :development, :test do
 end
 
 group :development do
+  # Fly.io
   gem "dockerfile-rails", ">= 1.2"
 
+  # Formatting & linting
   gem "standardrb", "~> 1.0"
 
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -90,5 +100,3 @@ group :test do
   gem "capybara"
   gem "cuprite"
 end
-
-gem "ahoy_email", "~> 2.1"
