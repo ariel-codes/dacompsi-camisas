@@ -1,0 +1,9 @@
+camisa_thumbnail:
+  name: thumbnail
+  record: camisa (Product)
+  blob: thumbnail_blob
+
+jaqueta_thumbnail:
+  name: thumbnail
+  record: jaqueta (Product)
+  blob: thumbnail_blob

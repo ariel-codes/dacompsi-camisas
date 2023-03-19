@@ -8,6 +8,7 @@ class Product < ApplicationRecord
 
   validate :validate_variations
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :name, :thumbnail, :images, presence: true
 
   def price_in_reais
     price / 100.0

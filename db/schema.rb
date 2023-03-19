@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_19_025313) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_19_211257) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,9 +34,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_19_025313) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "ahoy_clicks", force: :cascade do |t|
+    t.string "campaign"
+    t.string "token"
+    t.index ["campaign"], name: "index_ahoy_clicks_on_campaign"
+  end
+
+  create_table "ahoy_messages", force: :cascade do |t|
+    t.string "user_type"
+    t.integer "user_id"
+    t.string "to"
+    t.string "mailer"
+    t.text "subject"
+    t.datetime "sent_at"
+    t.string "campaign"
+    t.index ["campaign"], name: "index_ahoy_messages_on_campaign"
+    t.index ["to"], name: "index_ahoy_messages_on_to"
+    t.index ["user_type", "user_id"], name: "index_ahoy_messages_on_user"
   end
 
   create_table "buyer_notifications", force: :cascade do |t|
@@ -123,7 +142,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_19_025313) do
     t.json "variations", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "description"
+    t.text "description", default: ""
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

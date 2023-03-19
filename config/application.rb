@@ -38,5 +38,6 @@ module Camisas
     config.beginning_of_week = :sunday
 
     routes.default_url_options = {host: ENV.fetch("URL_HOST", "localhost"), protocol: ENV.fetch("URL_PROTOCOL", "http")}
+    config.action_mailer.default_url_options = routes.default_url_options
   end
 end

@@ -10,9 +10,7 @@ class PurchaseTest < ApplicationSystemTestCase
   attr_accessor :campaign, :order, :preference_mock, :merchant_order_mock, :back_url
 
   setup do
-    self.campaign = campaigns(:camisas_2023_1)
-    travel_to campaign.start.to_datetime
-    freeze_time
+    self.campaign = campaigns(:camisas_active)
 
     self.preference_mock = Minitest::Mock.new
     self.merchant_order_mock = Minitest::Mock.new
@@ -23,10 +21,10 @@ class PurchaseTest < ApplicationSystemTestCase
   end
 
   test "full purchase flow" do
-    visit "/campanhas"
-    click_on Campaign.first.name
+    visit "/"
+    click_on campaign.name
 
-    click_on Campaign.first.products.first.name
+    click_on campaign.products.first.name
 
     click_on "Adicionar ao Carrinho"
 

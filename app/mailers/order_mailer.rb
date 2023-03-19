@@ -1,8 +1,7 @@
 class OrderMailer < ApplicationMailer
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.order_mailer.new.subject
+  has_history user: -> { params[:order].buyer }
+  track_clicks campaign: "order-confirmations", only: [:confirmation]
+  utm_params
 
   def confirmation
     @order = params[:order]

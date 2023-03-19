@@ -231,6 +231,24 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="ahoy_email (vbundled(2.1.3)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/ahoy_email-2.1.3/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/ahoy_email-2.1.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/ahoy_email-2.1.3/config" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/ahoy_email-2.1.3/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/ahoy_email-2.1.3/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/ahoy_email-2.1.3/config" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="ast (vbundled(2.4.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -518,6 +536,20 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/domain_name-0.5.20190701/test" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/domain_name-0.5.20190701/tool" />
         </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="errbase (vbundled(0.2.2)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/errbase-0.2.2/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/errbase-0.2.2/lib" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -1552,6 +1584,20 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="safely_block (vbundled(0.3.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/safely_block-0.3.0/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/safely_block-0.3.0/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="slim (vbundled(5.1.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1981,6 +2027,12 @@
       <list>
         <option value="active_record:application_record" />
         <option value="active_record:multi_db" />
+        <option value="ahoy:clicks" />
+        <option value="ahoy:clicks:activerecord" />
+        <option value="ahoy:clicks:mongoid" />
+        <option value="ahoy:messages" />
+        <option value="ahoy:messages:activerecord" />
+        <option value="ahoy:messages:mongoid" />
         <option value="application_record" />
         <option value="benchmark" />
         <option value="channel" />
@@ -2020,6 +2072,12 @@
       <list>
         <option value="active_record:application_record" />
         <option value="active_record:multi_db" />
+        <option value="ahoy:clicks" />
+        <option value="ahoy:clicks:activerecord" />
+        <option value="ahoy:clicks:mongoid" />
+        <option value="ahoy:messages" />
+        <option value="ahoy:messages:activerecord" />
+        <option value="ahoy:messages:mongoid" />
         <option value="application_record" />
         <option value="benchmark" />
         <option value="channel" />

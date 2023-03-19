@@ -90,3 +90,5 @@ group :test do
   gem "capybara"
   gem "cuprite"
 end
+
+gem "ahoy_email", "~> 2.1"

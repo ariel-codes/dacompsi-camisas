@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-camisas_2023_1:
+camisas_active:
   name: Camisas 2023/1
-  start: 2023-03-06
-  end: 2023-03-13
-  products: [camisa, jaqueta]
+  start: <%= Date.today %>
+  end: <%= Date.today.end_of_week %>
+  products: [ camisa, jaqueta ]

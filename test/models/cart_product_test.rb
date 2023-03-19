@@ -2,7 +2,7 @@ require "test_helper"
 
 class CartProductTest < ActiveSupport::TestCase
   test "validates variations" do
-    shirt = Product.new name: "Test Shirt", price: 100, thumb_path: "test.jpg", carousel_paths: ["test.jpg"],
+    shirt = Product.new name: "Test Shirt", price: 100,
       variations: {"curso" => ["CC"], "corte" => ["t-shirt"], "tamanho" => ["S"], "cor" => ["preto"]}
 
     cart_product = CartProduct.new product: shirt, quantity: 1,

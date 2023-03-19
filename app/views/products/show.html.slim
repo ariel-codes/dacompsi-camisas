@@ -3,7 +3,7 @@
     h2.font-medium.text-neutral-600.hover:underline = link_to @campaign.name, @campaign
     h1.text-3xl.font-semibold.text-neutral-800 = @product.name
 
-  = render partial: "carousel", locals: {index: @carousel_index, images: @product.images}
+  = render partial: "carousel", locals: {index: @carousel_index, images: @product.images} if @product.images.any?
 
   .flex.items-baseline.gap-2.w-full.justify-between
     span.text-xl.font-medium.text-neutral-800 = number_to_currency @product.price_in_reais, locale: :'pt-BR'

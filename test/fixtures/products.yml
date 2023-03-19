@@ -3,8 +3,8 @@
 camisa:
   price: 3200
   name: "Camisa de Curso"
-  thumb_path: "camisa-thumb.png"
-  carousel_paths: '["camisa-cc.png", "camisa-si.png", "camisa-tamanhos.png"]'
+#  thumb_path: "camisa-thumb.png"
+#  carousel_paths: '["camisa-cc.png", "camisa-si.png", "camisa-tamanhos.png"]'
   variations:
     curso:
       - Computação
@@ -27,8 +27,8 @@ camisa:
 jaqueta:
   price: 17200
   name: "Jaqueta DCC"
-  thumb_path: "jaqueta-thumb.png"
-  carousel_paths: '["jaqueta-frente.png", "jaqueta-verso.png", "jaqueta-tamanhos.png"]'
+#  thumb_path: "jaqueta-thumb.png"
+#  carousel_paths: '["jaqueta-frente.png", "jaqueta-verso.png", "jaqueta-tamanhos.png"]'
   variations:
     tamanho:
       - PP
