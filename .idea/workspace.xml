@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Add web analytics">
-      <change beforePath="$PROJECT_DIR$/.idea/camisas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/camisas.iml" afterDir="false" />
+    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Dedupe buyers and relax telephone format">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/buyer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/buyer.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/carts/checkout.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/checkout.html.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/application_system_test_case.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/application_system_test_case.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/controllers/orders_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/orders_controller_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/buyers.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/buyers.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/carts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/carts.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/orders.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/orders.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/mailers/order_mailer_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/mailers/order_mailer_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/system/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/cart_products.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/system/purchase_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/system/purchase_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/campaigns/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/campaigns/index.html.slim" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +181,7 @@
     <MESSAGE value="Add description to Products" />
     <MESSAGE value="Add email analytics" />
     <MESSAGE value="Add web analytics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add web analytics" />
+    <MESSAGE value="Dedupe buyers and relax telephone format" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dedupe buyers and relax telephone format" />
   </component>
 </project>

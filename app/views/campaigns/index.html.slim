@@ -8,7 +8,6 @@ div.flex.flex-col.justify-center.items-center
       - @campaigns.each do |campaign|
         li
           p.text-2xl.font-bold.text-brand-600 class="hover:underline" = link_to campaign.name, campaign
-          sub.flex.gap-2.text-sm.text-gray-500 class="top-[-0.2em]"
-            time = campaign.start.strftime("%d/%m/%Y")
-            | ➡️
-            time = campaign.end.strftime("%d/%m/%Y")
+          sub.block.text-sm.text-gray-500 class="top-[-0.2em]"
+            = "vendas abertas até "
+            = time_tag campaign.end, format: :short
