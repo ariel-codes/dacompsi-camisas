@@ -4,24 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Add email analytics">
+    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Add web analytics">
       <change beforePath="$PROJECT_DIR$/.idea/camisas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/camisas.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/campaigns_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/campaigns_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/payment_notifications_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/payment_notifications_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/products_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/buyer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/buyer.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/cart.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/cart_product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cart_product.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/carts/_cart_product.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/_cart_product.slim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/carts/checkout.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/checkout.html.slim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/application_system_test_case.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/application_system_test_case.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/controllers/orders_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/orders_controller_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/fixtures/buyers.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/buyers.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/fixtures/carts.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/carts.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/fixtures/orders.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/orders.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/mailers/order_mailer_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/mailers/order_mailer_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/system/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/test/fixtures/cart_products.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/system/purchase_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/system/purchase_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_helper.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +63,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ariel/Workspace/dacompsi/camisas&quot;,
+    &quot;last.edited.regexp&quot;: &quot;31 998692914&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ariel/Workspace/dacompsi/camisas/test/system&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -78,6 +76,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/system" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/app/views/order_mailer" />
@@ -193,6 +192,7 @@
     <MESSAGE value="Move product images to ActiveStorage" />
     <MESSAGE value="Add description to Products" />
     <MESSAGE value="Add email analytics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add email analytics" />
+    <MESSAGE value="Add web analytics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add web analytics" />
   </component>
 </project>

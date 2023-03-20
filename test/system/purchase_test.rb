@@ -32,7 +32,7 @@ class PurchaseTest < ApplicationSystemTestCase
 
     fill_in "Nome", with: "Fulano"
     fill_in "Email", with: "fulano@test.com"
-    fill_in "Telefone", with: "31 99999-9999"
+    fill_in "Telefone", with: "31 999999999"
 
     ::Mercadopago::Preference.stub :new, preference_mock do
       preference_mock.expect :create, {response: {"init_point" => MP_REDIRECT_PATH}} do |preference_params|

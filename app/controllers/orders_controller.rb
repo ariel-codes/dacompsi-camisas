@@ -25,7 +25,11 @@ class OrdersController < ApplicationController
   def create
     init_point = nil
     Buyer.transaction do
-      @buyer = Buyer.create!(buyer_params)
+      if (@buyer = Buyer.find_by(email: buyer_params[:email]) || Buyer.find_by(telephone: buyer_params[:telephone]))
+        @buyer.update!(buyer_params)
+      else
+        @buyer = Buyer.create!(buyer_params)
+      end
       session[:buyer_id] = @buyer.id
 
       @order = Order.create!(cart: @cart, buyer: @buyer, total_price: @cart.total_price)
