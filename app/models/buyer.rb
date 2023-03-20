@@ -6,5 +6,5 @@ class Buyer < ApplicationRecord
 
   validates :name, presence: true
   validates :email, format: {with: URI::MailTo::EMAIL_REGEXP, allow_blank: false}, uniqueness: {case_sensitive: false}
-  validates :telephone, format: {with: /\A\d{2} \d{9}\z/, allow_blank: false}, uniqueness: true
+  validates :telephone, format: {with: /\A\d{2}\d{9}\z/, allow_blank: false}, uniqueness: true
 end

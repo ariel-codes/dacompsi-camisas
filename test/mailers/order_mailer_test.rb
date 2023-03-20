@@ -2,7 +2,7 @@ require "test_helper"
 
 class OrderMailerTest < ActionMailer::TestCase
   setup do
-    @buyer = Buyer.create! name: "John", email: "john@email.com", telephone: "31 999999999"
+    @buyer = Buyer.create! name: "John", email: "john@email.com", telephone: "31999999999"
     cart = Cart.create! cart_products: [
       CartProduct.new(product: products(:camisa), quantity: 1, variations: {
         curso: "Computação", tamanho: "M", cor: "verde", corte: "t-shirt"

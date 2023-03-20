@@ -15,6 +15,6 @@
     = form.label :telephone, class: 'flex items-baseline' do |label|
       span.basis-20 Telefone
       = form.telephone_field :telephone, required: true,
-              pattern: '\d{2} \d{9}', placeholder: '99 999999999',
+              pattern: '\d{2}\d{9}', placeholder: '31999999999',
               class: 'flex-grow basis-40'
     = form.submit "Pagar", class: "rounded hero-button"
