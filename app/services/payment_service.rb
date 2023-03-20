@@ -20,6 +20,7 @@ class PaymentService
       external_reference: @order.id,
       items: order_items(@order.cart_products),
       payer: buyer_data(@order.buyer),
+      date_of_expiration: Date.tomorrow.end_of_day,
       auto_return: "approved",
       back_urls: {
         success: back_url,
