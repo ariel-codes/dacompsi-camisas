@@ -4,7 +4,7 @@ Aplicação Rails para hospedar as vendas do DACompSI.
 - Ruby version
     - 3.2
 - System dependencies
-    - sqlite
+    - sqlite, libvips
 
 ### Configuração
 Após instalar Ruby e sqlite, rode este script para instalar as dependências pelo Bundler e criar os bancos de dados de dev e teste. 
