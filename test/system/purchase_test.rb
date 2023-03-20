@@ -53,7 +53,7 @@ class PurchaseTest < ApplicationSystemTestCase
 
     ::Mercadopago::MerchantOrder.stub :new, merchant_order_mock do
       merchant_order_mock.expect(:get,
-        {response: {"status" => "closed", "external_reference" => order.id}},
+        {response: {"order_status" => "paid", "external_reference" => order.id}},
         [MERCHANT_ORDER_ID])
 
       assert_enqueued_email_with OrderMailer, :paid, args: mailer_args do

@@ -32,7 +32,7 @@ class PaymentService
 
     @order.update!(payment_preference_id: preference["id"])
 
-    notify_buyer
+    notify_buyer(@order.order_status)
 
     preference["init_point"]
   end
@@ -53,26 +53,24 @@ class PaymentService
   private
 
   # TODO: extract to a module/class
-  def notify_buyer
-    return if BuyerNotification.exists?(buyer: @order.buyer, notification: @order.payment_status)
-
+  def notify_buyer(status)
     mailer = OrderMailer.with(order: @order)
 
-    case @order.payment_status
+    message = case status
     when "completed"
-      mailer.paid.deliver_later
+      :paid
     when "failed"
-      mailer.failed.deliver_later
-    end
-
-    case @order.order_status
+      :failed
     when "placed"
-      mailer.confirmation.deliver_later
+      :confirmation
     when "cancelled"
-      mailer.cancelled.deliver_later
+      :cancelled
     end
 
-    BuyerNotification.create!(buyer: @order.buyer, notification: @order.payment_status)
+    notification = BuyerNotification.create(buyer: @order.buyer, notification: message)
+    if message && notification.save
+      mailer.public_send(message).deliver_later
+    end
   end
 
   # https://www.mercadopago.com.br/developers/pt/reference/merchant_orders/_merchant_orders_id/get
@@ -81,19 +79,19 @@ class PaymentService
     merchant_order = @sdk.merchant_order.get(merchant_order_id)[:response]
     return unless merchant_order["external_reference"].to_i == @order.id
 
-    if merchant_order["status"] == "closed"
+    Rails.logger.info "Updating order status for order #{@order.id} to #{merchant_order["status"] || merchant_order["order_status"]}"
+
+    if merchant_order["order_status"] == "paid"
       @order.payment_completed!
     elsif merchant_order["order_status"] == "payment_in_process"
       @order.payment_processing!
-    elsif merchant_order["cancelled"] ||
-        (merchant_order["order_status"] == "reverted" &&
-          merchant_order["payments"].all? { |p| p["refunded"].in?(%w[cancelled refunded]) })
+    elsif merchant_order["cancelled"] || merchant_order["order_status"] == "reverted"
       @order.order_cancelled!
-    elsif merchant_order["status"] == "expired" || merchant_order["order_status"].in?(%w[partially_reverted expired])
+    elsif merchant_order["status"] == "expired" || merchant_order["order_status"] == "expired"
       @order.payment_failed!
     end
 
-    notify_buyer
+    notify_buyer(@order.payment_status)
   end
 
   def order_items(cart_products)
