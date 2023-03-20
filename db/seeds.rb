@@ -14,7 +14,6 @@ def image_data(*filenames)
 end
 
 camisa23_1 = Product.create! price: 32_00, name: "Camisa de Curso",
-  thumbnail: image_data("camisa-thumb.png").first,
   images: image_data(%w[camisa-cc.png camisa-si.png]),
   variations: {
     "corte" => %w[t-shirt babylook],
@@ -53,7 +52,6 @@ camisa23_1 = Product.create! price: 32_00, name: "Camisa de Curso",
   MARKDOWN
 
 jaqueta23_1 = Product.create! price: 172_00, name: "Jaqueta DCC",
-  thumbnail: image_data("jaqueta-thumb.png").first,
   images: image_data(%w[jaqueta-frente.png jaqueta-verso.png]),
   variations: {"tamanho" => %w[PP P M G GG]},
   description: <<~MARKDOWN.strip

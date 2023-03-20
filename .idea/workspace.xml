@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Dedupe buyers and relax telephone format">
+    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Add SEO tags">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci-cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci-cd.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/campaigns/index.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/campaigns/index.html.slim" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,6 +182,8 @@
     <MESSAGE value="Add email analytics" />
     <MESSAGE value="Add web analytics" />
     <MESSAGE value="Dedupe buyers and relax telephone format" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dedupe buyers and relax telephone format" />
+    <MESSAGE value="Improve Campaign end display" />
+    <MESSAGE value="Add SEO tags" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add SEO tags" />
   </component>
 </project>

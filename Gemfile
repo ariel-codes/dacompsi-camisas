@@ -58,6 +58,12 @@ gem "commonmarker", "~> 1.0.0.pre8"
 gem "ahoy_email", "~> 2.1"
 gem "ahoy_matey", "~> 4.2"
 
+# SEO
+gem "meta-tags", "~> 2.18"
+
+# Active Storage variants
+gem "image_processing", ">= 1.2"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

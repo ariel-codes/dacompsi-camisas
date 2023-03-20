@@ -1,4 +1,5 @@
-h1.text-2xl.font-semibold.text-neutral-800.mb-4 = @campaign.name
+h1.text-2xl.font-semibold.text-neutral-800.mb-4 = title @campaign.name
+- description "vendas abertas até #{time_tag(@campaign.end, format: :short)}"
 
 ul.flex.flex-col.gap-2
   - @campaign.products.each do |product|

@@ -1,3 +1,29 @@
+ruby:
+  title(@product.name)
+  social_thumbnail_url = rails_blob_url(@product.opengraph_thumbnail)
+  set_meta_tags(
+    og: {
+      site_name: 'DACompSI.shop',
+      title: @product.name,
+      type: 'product',
+      url: campaign_product_url(@campaign, @product),
+      image_src: social_thumbnail_url,
+      image: social_thumbnail_url,
+      price: { amount: @product.price_in_reais, currency: 'BRL' },
+      condition: 'new',
+      locale: 'pt_BR'
+    },
+    article: {
+      title: @product.name,
+      price: {amount: @product.price_in_reais, currency: 'BRL'},
+      url: campaign_product_url(@campaign, @product),
+      image: social_thumbnail_url,
+      section: @campaign.name,
+      published_time: @product.created_at,
+      modified_time: @product.updated_at
+    }
+  )
+
 .flex.flex-col.gap-6.mb-10
   header
     h2.font-medium.text-neutral-600.hover:underline = link_to @campaign.name, @campaign
