@@ -40,7 +40,11 @@ class OrdersController < ApplicationController
       )
     end
 
-    redirect_to init_point, allow_other_host: true, status: :see_other
+    if init_point.nil?
+      redirect_to cart_path
+    else
+      redirect_to init_point, allow_other_host: true, status: :see_other
+    end
   end
 
   private

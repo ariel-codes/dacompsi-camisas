@@ -12,6 +12,8 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     cart = carts(:ariel_cart)
     second_email = "another@email.com"
 
+    post add_product_cart_path, params: {product: {product_id: products(:jaqueta).id, quantity: 1, variations: {tamanho: "M"}}}
+
     assert_difference -> { Order.count }, 1 do
       assert_changes -> { buyer.reload.email }, from: buyer.email, to: second_email do
         PaymentService.stub :new, @payment_service_mock do

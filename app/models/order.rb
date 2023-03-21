@@ -16,7 +16,9 @@ class Order < ApplicationRecord
   delegate :cart_products, to: :cart
 
   validates_associated :buyer, :cart, on: :create
-  validates :buyer, :cart, :total_price, presence: true
+  validates :buyer, :cart, :cart_products, presence: true
+
+  validates :total_price, numericality: {greater_than: 0, allow_nil: false}
 
   def total_price_in_reais
     total_price / 100.0
