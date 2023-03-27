@@ -17,4 +17,8 @@ class Cart < ApplicationRecord
   def total_price_in_reais
     total_price / 100.0
   end
+
+  def empty?
+    cart_products.empty?
+  end
 end

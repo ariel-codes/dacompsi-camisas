@@ -23,6 +23,8 @@ class OrdersController < ApplicationController
   end
 
   def create
+    return redirect_to cart_path if @cart.empty?
+
     try_count = 0
     init_point = nil
 
