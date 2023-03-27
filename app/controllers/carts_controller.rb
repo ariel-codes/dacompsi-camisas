@@ -13,7 +13,7 @@ class CartsController < ApplicationController
     cart_product = @cart.cart_products.create!(product_params)
 
     ahoy.track "add_cart", cart_id: @cart.id, product_id: cart_product.product.id
-    redirect_to cart_path(continue: cart_product.product.campaigns.active.first.id), status: :see_other
+    redirect_to cart_path(continue: cart_product.product.campaigns.active.first&.id), status: :see_other
   end
 
   def change_quantity

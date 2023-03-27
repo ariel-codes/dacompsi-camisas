@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Fix #17">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci-cd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci-cd.yml" afterDir="false" />
+    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Track deploys with Honeybadger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/products/show.html.slim" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/products/show.html.slim" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +192,7 @@
     <MESSAGE value="Make Campaign::active respect timezone" />
     <MESSAGE value="Fix transactions behaviour" />
     <MESSAGE value="Fix #17" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix #17" />
+    <MESSAGE value="Track deploys with Honeybadger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Track deploys with Honeybadger" />
   </component>
 </project>

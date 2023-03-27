@@ -6,7 +6,7 @@ ruby:
       site_name: 'DACompSI.shop',
       title: @product.name,
       type: 'product',
-      url: campaign_product_url(@campaign, @product),
+      url: product_url(@product),
       image_src: social_thumbnail_url,
       image: social_thumbnail_url,
       price: { amount: @product.price_in_reais, currency: 'BRL' },
@@ -16,7 +16,7 @@ ruby:
     article: {
       title: @product.name,
       price: {amount: @product.price_in_reais, currency: 'BRL'},
-      url: campaign_product_url(@campaign, @product),
+      url: product_url(@product),
       image: social_thumbnail_url,
       section: @campaign.name,
       published_time: @product.created_at,
