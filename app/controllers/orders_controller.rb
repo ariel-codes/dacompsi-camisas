@@ -23,28 +23,36 @@ class OrdersController < ApplicationController
   end
 
   def create
+    try_count = 0
     init_point = nil
-    Buyer.transaction do
+
+    begin
       if (@buyer = Buyer.find_by(email: buyer_params[:email]) || Buyer.find_by(telephone: buyer_params[:telephone]))
         @buyer.update!(buyer_params)
       else
         @buyer = Buyer.create!(buyer_params)
       end
-      session[:buyer_id] = @buyer.id
 
-      @order = Order.create!(cart: @cart, buyer: @buyer, total_price: @cart.total_price)
-
-      init_point = PaymentService.new(@order).create_payment(
-        notification_url: payment_notification_ipn_url(@order, token: @order.token, source_news: :ipn),
-        back_url: payment_notification_after_redirect_url(@order, token: @order.token)
-      )
+      Order.transaction do
+        @order = Order.create!(cart: @cart, buyer: @buyer, total_price: @cart.total_price)
+        init_point = PaymentService.new(@order).create_payment(
+          notification_url: payment_notification_ipn_url(@order, token: @order.token, source_news: :ipn),
+          back_url: payment_notification_after_redirect_url(@order, token: @order.token)
+        )
+      end
+    rescue SQLite3::BusyException
+      if try_count > 3
+        @buyer&.destroy! if @buyer&.orders&.empty?
+        flash[:error] = "Não foi possível processar o seu pedido. Por favor, tente novamente mais tarde."
+        return redirect_to cart_path
+      else
+        try_count += 1
+        retry
+      end
     end
 
-    if init_point.nil?
-      redirect_to cart_path
-    else
-      redirect_to init_point, allow_other_host: true, status: :see_other
-    end
+    session[:buyer_id] = @buyer.id
+    redirect_to init_point, allow_other_host: true, status: :see_other
   end
 
   private

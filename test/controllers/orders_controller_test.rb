@@ -2,9 +2,11 @@ require "test_helper"
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @payment_service_mock = Minitest::Mock.new
-    @payment_service_mock.expect :create_payment, "https://example.com/redirect_mp", [],
-      notification_url: String, back_url: String
+    @payment_service_mock = Class.new do
+      def create_payment(notification_url:, back_url:)
+        "https://example.com/redirect_mp"
+      end
+    end.new
   end
 
   test "#create with an existing buyer" do

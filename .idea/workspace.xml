@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Add payment expiration">
+    <list default="true" id="cce018c4-eece-4b98-8cf5-29a437f0d686" name="Changes" comment="Make Campaign::active respect timezone">
+      <change beforePath="$PROJECT_DIR$/.idea/camisas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/camisas.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mailers/order_mailer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/mailers/order_mailer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/order_mailer/confirmation.md.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/order_mailer/confirmation.md.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/order_mailer/paid.md.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/order_mailer/paid.md.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/controllers/orders_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/controllers/orders_controller_test.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,23 +51,23 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultRubyCreateTestTemplate&quot;: &quot;Minitest Spec&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last.edited.regexp&quot;: &quot;31 998692914&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ariel/Workspace/dacompsi/camisas/test/system&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
-    &quot;ruby.structure.view.model.defaults.configured&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultRubyCreateTestTemplate": "Minitest Spec",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last.edited.regexp": "31 998692914",
+    "last_opened_file_path": "/Users/ariel/Workspace/dacompsi/camisas/test/system",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ruby.rails.projectView.checked": "true",
+    "ruby.structure.view.model.defaults.configured": "true",
+    "settings.editor.selected.configurable": "preferences.intentionPowerPack",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/test/system" />
@@ -189,6 +193,8 @@
     <MESSAGE value="Make telephone field compatible with mobile keyboards" />
     <MESSAGE value="Fix payment notifications" />
     <MESSAGE value="Add payment expiration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add payment expiration" />
+    <MESSAGE value="Validate order has products" />
+    <MESSAGE value="Make Campaign::active respect timezone" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make Campaign::active respect timezone" />
   </component>
 </project>
