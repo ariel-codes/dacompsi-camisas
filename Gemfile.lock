@@ -66,7 +66,7 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-    addressable (2.8.1)
+    addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
     ahoy_email (2.1.3)
       actionmailer (>= 5)
@@ -82,7 +82,7 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
-    capybara (3.38.0)
+    capybara (3.39.0)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -91,15 +91,14 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    commonmarker (1.0.0.pre8-x86_64-darwin)
-    commonmarker (1.0.0.pre8-x86_64-linux)
+    commonmarker (1.0.0.pre9-arm64-darwin)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     cuprite (0.14.3)
       capybara (~> 3.0)
       ferrum (~> 0.13.0)
     date (3.3.3)
-    debug (1.7.1)
+    debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     delayed_job (4.1.11)
@@ -112,7 +111,6 @@ GEM
       rails
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    errbase (0.2.2)
     erubi (1.12.0)
     ferrum (0.13)
       addressable (~> 2.5)
@@ -126,16 +124,16 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
-    i18n (1.12.0)
+    i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
-    importmap-rails (1.1.5)
+    importmap-rails (1.1.6)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.6.3)
+    irb (1.6.4)
       reline (>= 0.3.0)
     json (2.6.3)
     kramdown (2.4.0)
@@ -147,7 +145,8 @@ GEM
       addressable (~> 2.8)
     letter_opener (1.8.1)
       launchy (>= 2.2, < 3)
-    loofah (2.19.1)
+    lint_roller (1.0.0)
+    loofah (2.21.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.8.1)
@@ -172,7 +171,7 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitest (5.18.0)
-    msgpack (1.6.1)
+    msgpack (1.7.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -183,13 +182,11 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     netrc (0.11.0)
-    nio4r (2.5.8)
-    nokogiri (1.14.2-x86_64-darwin)
+    nio4r (2.5.9)
+    nokogiri (1.14.3-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.14.2-x86_64-linux)
-      racc (~> 1.4)
-    parallel (1.22.1)
-    parser (3.2.1.1)
+    parallel (1.23.0)
+    parser (3.2.2.1)
       ast (~> 2.4.1)
     propshaft (0.7.0)
       actionpack (>= 7.0.0)
@@ -200,7 +197,7 @@ GEM
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (2.2.6.4)
+    rack (2.2.7)
     rack-test (2.1.0)
       rack (>= 1.3)
     rails (7.0.4.3)
@@ -235,7 +232,7 @@ GEM
     rainbow (3.1.1)
     rake (13.0.6)
     redis (4.8.1)
-    regexp_parser (2.7.0)
+    regexp_parser (2.8.0)
     reline (0.3.3)
       io-console (~> 0.5)
     rest-client (2.1.0)
@@ -244,17 +241,17 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
-    rubocop (1.48.1)
+    rubocop (1.50.2)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.2.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.26.0, < 2.0)
+      rubocop-ast (>= 1.28.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.28.0)
+    rubocop-ast (1.28.1)
       parser (>= 3.2.1.0)
     rubocop-performance (1.16.0)
       rubocop (>= 1.7.0, < 2.0)
@@ -262,8 +259,7 @@ GEM
     ruby-progressbar (1.13.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
-    safely_block (0.3.0)
-      errbase (>= 0.1.1)
+    safely_block (0.4.0)
     slim (5.1.0)
       temple (~> 0.10.0)
       tilt (>= 2.0.6, < 2.2)
@@ -271,19 +267,23 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (>= 3.0, < 6.0, != 5.0.0)
-    sqlite3 (1.6.2-x86_64-darwin)
-    sqlite3 (1.6.2-x86_64-linux)
-    standard (1.25.3)
+    sqlite3 (1.6.2-arm64-darwin)
+    standard (1.28.2)
       language_server-protocol (~> 3.17.0.2)
-      rubocop (~> 1.48.1)
+      lint_roller (~> 1.0)
+      rubocop (~> 1.50.2)
+      standard-custom (~> 1.0.0)
+      standard-performance (~> 1.0.1)
+    standard-custom (1.0.0)
+      lint_roller (~> 1.0)
+    standard-performance (1.0.1)
+      lint_roller (~> 1.0)
       rubocop-performance (~> 1.16.0)
     standardrb (1.0.1)
       standard
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
-    tailwindcss-rails (2.0.25-x86_64-darwin)
-      railties (>= 6.0.0)
-    tailwindcss-rails (2.0.25-x86_64-linux)
+    tailwindcss-rails (2.0.29-arm64-darwin)
       railties (>= 6.0.0)
     temple (0.10.0)
     thor (1.2.1)
@@ -310,12 +310,10 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.7)
+    zeitwerk (2.6.8)
 
 PLATFORMS
-  x86_64-darwin-21
-  x86_64-darwin-22
-  x86_64-linux
+  arm64-darwin-22
 
 DEPENDENCIES
   ahoy_email (~> 2.1)
@@ -341,6 +339,7 @@ DEPENDENCIES
   redis (~> 4.0)
   slim-rails (~> 3.6)
   sqlite3 (~> 1.4)
+  standard
   standardrb (~> 1.0)
   stimulus-rails
   tailwindcss-rails
@@ -349,7 +348,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.2.0p0
+   ruby 3.2.1p31
 
 BUNDLED WITH
-   2.3.12
+   2.4.13

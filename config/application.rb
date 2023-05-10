@@ -18,7 +18,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Camisas
+module Cluby
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
@@ -29,6 +29,8 @@ module Camisas
     # in config/environments, which are processed later.
     #
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.active_record.sqlite3_adapter_strict_strings_by_default = true
 
     config.active_job.queue_adapter = :delayed_job
 
