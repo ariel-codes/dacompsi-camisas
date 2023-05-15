@@ -31,7 +31,7 @@ gem "tailwindcss-rails"
 gem "slim-rails", "~> 3.6"
 
 # Use Redis adapter to run Action Cable in production
-gem "redis", "~> 4.0"
+gem "redis", "~> 5.0"
 
 # Rails translation files
 gem "rails-i18n", "~> 7.0"
