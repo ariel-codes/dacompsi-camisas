@@ -1,5 +1,5 @@
-# README dacompsi.shop
-Aplicação Rails para hospedar as vendas do DACompSI.
+# README cluby.app.br
+Plataforma Rails de eventos e vendas, voltada para associações e pequenos organizadores de eventos.
 
 - Ruby version
     - 3.2
